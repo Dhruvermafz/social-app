@@ -75,14 +75,15 @@ const SignupView = () => {
       <Stack alignItems="center">
         <Typography variant="h2" color="text.secondary" sx={{ mb: 6 }}>
           <Link to="/" color="inherit" underline="none">
-            PostIt
+            ItsABlog
           </Link>
         </Typography>
         <Typography variant="h5" gutterBottom>
           Sign Up
         </Typography>
         <Typography color="text.secondary">
-          Already have an account? <Link to="/login">Login</Link>
+          Already have an account?
+          <Link to="/login">Login</Link>
         </Typography>
         <Box component="form" onSubmit={handleSubmit}>
           <TextField
