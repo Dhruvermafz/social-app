@@ -54,7 +54,7 @@ const LoginView = () => {
           Login
         </Typography>
         <Typography color="text.secondary">
-          Don't have an account yet? <Link to="/register">Sign Up</Link>
+          Don't have an account yet? <Link to="/signup">Sign Up</Link>
         </Typography>
         <Box component="form" onSubmit={handleSubmit}>
           <TextField
