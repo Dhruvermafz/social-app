@@ -90,9 +90,9 @@ const Navbar = () => {
             mr={1}
             color={theme.palette.primary.main}
           >
-            {/* <Link to="/" color="inherit"> */}
-            ItsABlog
-            {/* </Link> */}
+            <Link to="/" color="inherit">
+              ItsABlog
+            </Link>
           </Typography>
         </HorizontalStack>
 
