@@ -87,7 +87,6 @@ const Profile = (props) => {
       ) : (
         <Loading label="Loading profile" />
       )}
-      <Footer />
     </Card>
   );
 };
