@@ -34,7 +34,7 @@ const PostCard = (props) => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const user = isLoggedIn();
-  const isAuthor = user?.username === post.poster.username;
+  const isAuthor = user && user.username === post.user.username;
 
   const theme = useTheme();
   const iconColor = theme.palette.primary.main;
