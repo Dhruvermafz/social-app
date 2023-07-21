@@ -8,7 +8,6 @@ const Footer = () => {
     <Box pb={3}>
       <Card>
         <Typography variant="subtitle1">
-          <Copyright />
           <a href="https://github.com/Dhruvermafz/social-app" target="_blank">
             Repo
           </a>

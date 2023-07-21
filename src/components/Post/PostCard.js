@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
   Button,
   Card,
@@ -7,22 +8,16 @@ import {
   useTheme,
 } from "@mui/material";
 import { Box } from "@mui/system";
-import React, { useState } from "react";
 import { AiFillCheckCircle, AiFillEdit, AiFillMessage } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { deletePost, likePost, unlikePost, updatePost } from "../../api/posts";
 import { isLoggedIn } from "../../helpers/authHelper";
 import ContentDetails from "../Content/ContentDetails";
-
 import LikeBox from "../Extras/LikeBox";
 import PostContentBox from "../Post/PostContentBox";
 import HorizontalStack from "../util/HorizontalStack";
-
-import {} from "react-icons/ai";
 import ContentUpdateEditor from "../Content/ContentUpdateEditor";
 import Markdown from "../Markdown/Markdown";
-
-import "./postCard.css";
 import { MdCancel } from "react-icons/md";
 import { BiTrash } from "react-icons/bi";
 import { BsReplyFill } from "react-icons/bs";
@@ -30,19 +25,16 @@ import UserLikePreview from "../UserModal/UserLikePreview";
 
 const PostCard = (props) => {
   const { preview, removePost } = props;
-  let postData = props.post;
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const user = isLoggedIn();
-  const isAuthor = user && user.username === post.poster.username;
-
   const theme = useTheme();
-  const iconColor = theme.palette.primary.main;
+  const { primary: iconColor, error: errorColor } = theme.palette;
 
   const [editing, setEditing] = useState(false);
   const [confirm, setConfirm] = useState(false);
-  const [post, setPost] = useState(postData);
-  const [likeCount, setLikeCount] = useState(post.likeCount);
+  const [post, setPost] = useState(props.post);
+  const [likeCount, setLikeCount] = useState(props.post.likeCount);
 
   let maxHeight = null;
   if (preview === "primary") {
@@ -83,13 +75,15 @@ const PostCard = (props) => {
 
   const handleLike = async (liked) => {
     if (liked) {
-      setLikeCount(likeCount + 1);
+      setLikeCount((prevCount) => prevCount + 1);
       await likePost(post._id, user);
     } else {
-      setLikeCount(likeCount - 1);
+      setLikeCount((prevCount) => prevCount - 1);
       await unlikePost(post._id, user);
     }
   };
+
+  const isAuthor = user?.username === post?.poster?.username;
 
   return (
     <Card sx={{ padding: 0 }} className="post-card">
@@ -107,16 +101,16 @@ const PostCard = (props) => {
           >
             <LikeBox
               likeCount={likeCount}
-              liked={post.liked}
+              liked={post?.liked}
               onLike={handleLike}
             />
           </Stack>
           <PostContentBox clickable={preview} post={post} editing={editing}>
             <HorizontalStack justifyContent="space-between">
               <ContentDetails
-                username={post.poster.username}
-                createdAt={post.createdAt}
-                edited={post.edited}
+                username={post?.poster?.username}
+                createdAt={post?.createdAt}
+                edited={post?.edited}
                 preview={preview === "secondary"}
               />
               <Box>
@@ -130,9 +124,9 @@ const PostCard = (props) => {
                         onClick={handleEditPost}
                       >
                         {editing ? (
-                          <MdCancel color={iconColor} />
+                          <MdCancel color={iconColor.main} />
                         ) : (
-                          <AiFillEdit color={iconColor} />
+                          <AiFillEdit color={iconColor.main} />
                         )}
                       </IconButton>
                       <IconButton
@@ -141,9 +135,9 @@ const PostCard = (props) => {
                         onClick={handleDeletePost}
                       >
                         {confirm ? (
-                          <AiFillCheckCircle color={theme.palette.error.main} />
+                          <AiFillCheckCircle color={errorColor.main} />
                         ) : (
-                          <BiTrash color={theme.palette.error.main} />
+                          <BiTrash color={errorColor.main} />
                         )}
                       </IconButton>
                     </HorizontalStack>
@@ -157,14 +151,14 @@ const PostCard = (props) => {
               sx={{ overflow: "hidden", mt: 1, maxHeight: 125 }}
               className="title"
             >
-              {post.title}
+              {post?.title}
             </Typography>
 
             {preview !== "secondary" &&
               (editing ? (
                 <ContentUpdateEditor
                   handleSubmit={handleSubmit}
-                  originalContent={post.content}
+                  originalContent={post?.content}
                 />
               ) : (
                 <Box
@@ -172,7 +166,7 @@ const PostCard = (props) => {
                   overflow="hidden"
                   className="content"
                 >
-                  <Markdown content={post.content} />
+                  <Markdown content={post?.content} />
                 </Box>
               ))}
 
@@ -184,13 +178,13 @@ const PostCard = (props) => {
                   color="text.secondary"
                   sx={{ fontWeight: "bold" }}
                 >
-                  {post.commentCount}
+                  {post?.commentCount}
                 </Typography>
               </HorizontalStack>
               <Box>
                 <UserLikePreview
-                  postId={post._id}
-                  userLikePreview={post.userLikePreview}
+                  postId={post?._id}
+                  userLikePreview={post?.userLikePreview}
                 />
               </Box>
             </HorizontalStack>
