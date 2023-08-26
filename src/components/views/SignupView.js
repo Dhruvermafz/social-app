@@ -6,6 +6,7 @@ import { isLength, isEmail, contains } from "validator";
 import { Typography, Input, Button, Form, Alert } from "antd";
 import Layout from "../Layout/Layout";
 import Copyright from "../Extras/Copyright";
+import Banner from "../Banner";
 import "../css/signup.css";
 const { Content } = Layout;
 
@@ -72,21 +73,16 @@ const SignupView = () => {
 
   return (
     <Layout className="Auth-right-signup">
-      <Typography.Title level={2} style={{ marginBottom: 24 }}>
-        <Typography.Link
-          to="/"
-          style={{ color: "inherit", textDecoration: "none" }}
-        >
-          ItsABlog
-        </Typography.Link>
-      </Typography.Title>
+      <Banner />
+      {allowTrial && (
+        <div className="portal-notif">
+          <span>Trial Login available at Login Portal</span>
+        </div>
+      )}
+
       <div className="portal portal-signup">
         <h2 className="portal-head">Sign Up</h2>
-        {allowTrial && (
-          <div className="portal-notif">
-            <span>Trial Login available at Login Portal</span>
-          </div>
-        )}
+
         <Link to="/login" className="portal-link">
           Already have an account?{" "}
         </Link>
