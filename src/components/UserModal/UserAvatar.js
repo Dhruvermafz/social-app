@@ -1,12 +1,11 @@
-import { Avatar } from "@mui/material";
 import React from "react";
+import { Avatar as AntdAvatar } from "antd";
 
-const UserAvatar = ({ username, height, width }) => {
+const UserAvatar = ({ username, size }) => {
   return (
-    <Avatar
-      sx={{
-        height: height,
-        width: width,
+    <AntdAvatar
+      size={size}
+      style={{
         backgroundColor: "lightgray",
       }}
       src={"https://robohash.org/" + username}

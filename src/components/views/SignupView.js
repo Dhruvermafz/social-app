@@ -3,15 +3,23 @@ import { useNavigate, Link } from "react-router-dom";
 import { signup } from "../../api/users";
 import { loginUser } from "../../helpers/authHelper";
 import { isLength, isEmail, contains } from "validator";
-import { Typography, Input, Button, Form, Alert } from "antd";
+import {
+  Typography,
+  TextField,
+  Button,
+  Alert,
+  Container,
+  Paper,
+  Box,
+  Grid,
+  Link as MUILink,
+} from "@mui/material";
 import Layout from "../Layout/Layout";
-import Copyright from "../Extras/Copyright";
 import Banner from "../Banner";
 import "../css/signup.css";
-const { Content } = Layout;
 
 const SignupView = () => {
-  const history = useNavigate();
+  const navigate = useNavigate();
   const [allowTrial] = useState(true);
   const [loading, setLoading] = useState(false);
   const [serverError, setServerError] = useState("");
@@ -22,29 +30,31 @@ const SignupView = () => {
     password: "",
   });
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+    setErrors((prevErrors) => ({
+      ...prevErrors,
+      [name]: "", // Clear error on input change
+    }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     const validationErrors = validate();
+    if (Object.keys(validationErrors).length !== 0) return;
 
-    if (Object.keys(validationErrors).length === 0) {
-      try {
-        setLoading(true);
-        const data = await signup(formData);
-        setLoading(false);
+    const data = await signup(formData);
 
-        if (data.error) {
-          setServerError(data.error);
-        } else {
-          loginUser(data);
-          history("/");
-        }
-      } catch (error) {
-        setServerError("An error occurred. Please try again.");
-      }
+    if (data.error) {
+      setServerError(data.error);
+    } else {
+      loginUser(data);
+      navigate("/");
     }
   };
 
@@ -68,6 +78,7 @@ const SignupView = () => {
     }
 
     setErrors(validationErrors);
+
     return validationErrors;
   };
 
@@ -80,61 +91,76 @@ const SignupView = () => {
         </div>
       )}
 
-      <div className="portal portal-signup">
-        <h2 className="portal-head">Sign Up</h2>
+      <Container maxWidth="sm">
+        <Paper elevation={3} className="portal portal-signup">
+          <Typography variant="h4" component="h2" className="portal-head">
+            Sign Up
+          </Typography>
 
-        <Link to="/login" className="portal-link">
-          Already have an account?{" "}
-        </Link>
-        <Form layout="vertical" onFinish={handleSubmit}>
-          <Form.Item
-            label="Username"
-            name="username"
-            validateStatus={errors.username ? "error" : ""}
-            help={errors.username}
-            rules={[{ required: true }]}
-          >
-            <Input
-              size="large"
-              placeholder="Enter your username"
-              value={formData.username}
-              onChange={handleChange}
-            />
-          </Form.Item>
-          <Form.Item
-            label="Email Address"
-            name="email"
-            validateStatus={errors.email ? "error" : ""}
-            help={errors.email}
-            rules={[{ required: true }]}
-          >
-            <Input value={formData.email} onChange={handleChange} />
-          </Form.Item>
-          <Form.Item
-            label="Password"
-            name="password"
-            validateStatus={errors.password ? "error" : ""}
-            help={errors.password}
-            rules={[{ required: true }]}
-          >
-            <Input.Password value={formData.password} onChange={handleChange} />
-          </Form.Item>
-          {serverError && <Alert type="error" message={serverError} />}
-          <Form.Item>
+          <MUILink component={Link} to="/login" className="portal-link">
+            Already have an account?
+          </MUILink>
+          <form onSubmit={handleSubmit}>
+            <Grid container spacing={2}>
+              <Grid item xs={12}>
+                <TextField
+                  label="Username"
+                  name="username"
+                  fullWidth
+                  variant="outlined"
+                  size="small"
+                  error={Boolean(errors.username)}
+                  helperText={errors.username}
+                  value={formData.username}
+                  onChange={handleInputChange}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  label="Email Address"
+                  name="email"
+                  fullWidth
+                  variant="outlined"
+                  size="small"
+                  error={Boolean(errors.email)}
+                  helperText={errors.email}
+                  value={formData.email}
+                  onChange={handleInputChange}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  label="Password"
+                  name="password"
+                  fullWidth
+                  variant="outlined"
+                  size="small"
+                  type="password"
+                  error={Boolean(errors.password)}
+                  helperText={errors.password}
+                  value={formData.password}
+                  onChange={handleInputChange}
+                />
+              </Grid>
+            </Grid>
+            {serverError && (
+              <Alert severity="error" className="portal-error">
+                {serverError}
+              </Alert>
+            )}
             <Button
-              type="primary"
+              type="submit"
+              variant="contained"
+              color="primary"
               size="large"
-              htmlType="submit"
-              loading={loading}
+              disabled={loading}
               className="portal-submit"
             >
               Sign Up
             </Button>
-          </Form.Item>
-        </Form>
-      </div>
-
-      <Copyright />
+          </form>
+        </Paper>
+      </Container>
     </Layout>
   );
 };

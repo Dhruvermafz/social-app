@@ -3,10 +3,10 @@ import "./index.css";
 import { icon } from "../../static";
 const Banner = () => {
   return (
-    <div className="banner">
+    <header className="banner">
       <img src={icon} alt={icon} />
       <strong>ItsABlog</strong>
-    </div>
+    </header>
   );
 };
 

@@ -22,22 +22,19 @@ const LoginView = () => {
   const [serverError, setServerError] = useState("");
 
   const handleChange = (e) => {
+    e.preventDefault();
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      const data = await login(formData);
-      if (data.error) {
-        setServerError(data.error);
-      } else {
-        loginUser(data);
-        navigate("/");
-      }
-    } catch (error) {
-      setServerError("An error occurred. Please try again.");
+    const data = await login(formData);
+    if (data.error) {
+      setServerError(data.error);
+    } else {
+      loginUser(data);
+      navigate("/");
     }
   };
 
@@ -59,14 +56,8 @@ const LoginView = () => {
           </div>
         )}
         <div className="portal">
-          <h2 className="portal-head">
-            <img src={icon} alt="icon" />
-            Login
-          </h2>
+          <h2 className="portal-head">Login</h2>
 
-          <Link to="/signup" className="portal-link">
-            Create an account?
-          </Link>
           <Form onFinish={handleSubmit} layout="vertical">
             <Form.Item
               label="Email Address"
@@ -95,6 +86,7 @@ const LoginView = () => {
               ]}
             >
               <Input.Password
+                size="large"
                 prefix={<LockOutlined />}
                 value={formData.password}
                 onChange={handleChange}
@@ -112,9 +104,12 @@ const LoginView = () => {
               </Button>
             </Form.Item>
           </Form>
-          <Copyright />
+          <Link to="/signup" className="portal-link">
+            Create an account?
+          </Link>
         </div>
       </div>
+      <Copyright />
     </Layout>
   );
 };
