@@ -1,24 +1,28 @@
-import { Container, Stack } from "@mui/material";
 import React from "react";
+import { Layout, Row, Col } from "antd";
 import GoBack from "../Extras/GoBack";
 import GridLayout from "../Extras/GridLayout";
-import Navbar from "../Extras/Navbar";
+import Navbar from "../Home/Navbar";
 import PostBrowser from "../Post/PostBrowser";
-import Sidebar from "../Extras/Sidebar";
+import Sidebar from "../Home/Sidebar";
+
+const { Content } = Layout;
 
 const SearchView = () => {
   return (
-    <Container>
+    <Layout>
       <Navbar />
-      <GridLayout
-        left={
-          <Stack spacing={2}>
+      <Content>
+        <Row gutter={[16, 16]}>
+          <Col span={16}>
             <PostBrowser createPost contentType="posts" />
-          </Stack>
-        }
-        right={<Sidebar />}
-      />
-    </Container>
+          </Col>
+          <Col span={8}>
+            <Sidebar />
+          </Col>
+        </Row>
+      </Content>
+    </Layout>
   );
 };
 

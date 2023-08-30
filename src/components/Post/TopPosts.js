@@ -2,7 +2,7 @@ import { Card, Stack, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { getPosts } from "../../api/posts";
 import { isLoggedIn } from "../../helpers/authHelper";
-import Loading from "../Extras/Loading";
+import Loading from "../Home/Loading";
 import PostCard from "./PostCard";
 import HorizontalStack from "../util/HorizontalStack";
 import "react-icons/md";

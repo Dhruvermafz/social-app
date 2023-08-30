@@ -12,7 +12,6 @@ import {
   Paper,
   Box,
   Grid,
-  Link as MUILink,
 } from "@mui/material";
 import Layout from "../Layout/Layout";
 import Banner from "../Banner";
@@ -83,24 +82,22 @@ const SignupView = () => {
   };
 
   return (
-    <Layout className="Auth-right-signup">
+    <>
       <Banner />
-      {allowTrial && (
-        <div className="portal-notif">
-          <span>Trial Login available at Login Portal</span>
-        </div>
-      )}
+      <Layout className="Auth-right-signup">
+        {allowTrial && (
+          <div className="portal-notif">
+            <span>Trial Login available at Login Portal</span>
+          </div>
+        )}
 
-      <Container maxWidth="sm">
-        <Paper elevation={3} className="portal portal-signup">
-          <Typography variant="h4" component="h2" className="portal-head">
-            Sign Up
-          </Typography>
+        <div className="portal portal-signup">
+          <h2 className="portal-head">Sign Up</h2>
 
-          <MUILink component={Link} to="/login" className="portal-link">
+          <Link to="/login" className="portal-link">
             Already have an account?
-          </MUILink>
-          <form onSubmit={handleSubmit}>
+          </Link>
+          <form aria-labelledby="vertical" onSubmit={handleSubmit}>
             <Grid container spacing={2}>
               <Grid item xs={12}>
                 <TextField
@@ -142,26 +139,29 @@ const SignupView = () => {
                   onChange={handleInputChange}
                 />
               </Grid>
+
+              {serverError && (
+                <Alert severity="error" className="portal-error">
+                  {serverError}
+                </Alert>
+              )}
+              <Grid item xs={12}>
+                <Button
+                  type="submit"
+                  variant="contained"
+                  color="primary"
+                  size="large"
+                  disabled={loading}
+                  className="portal-submit"
+                >
+                  Sign Up
+                </Button>
+              </Grid>
             </Grid>
-            {serverError && (
-              <Alert severity="error" className="portal-error">
-                {serverError}
-              </Alert>
-            )}
-            <Button
-              type="submit"
-              variant="contained"
-              color="primary"
-              size="large"
-              disabled={loading}
-              className="portal-submit"
-            >
-              Sign Up
-            </Button>
           </form>
-        </Paper>
-      </Container>
-    </Layout>
+        </div>
+      </Layout>
+    </>
   );
 };
 

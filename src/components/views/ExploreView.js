@@ -5,11 +5,11 @@ import { getPosts } from "../../api/posts";
 import { isLoggedIn } from "../../helpers/authHelper";
 import CreatePost from "../Post/CreatePost";
 import GridLayout from "../Extras/GridLayout";
-import Loading from "../Extras/Loading";
-import Navbar from "../Extras/Navbar";
+import Loading from "../Home/Loading";
+import Navbar from "../Home/Navbar";
 import SortBySelect from "../Content/SortBySelect";
 import PostCard from "../Post/PostCard";
-import Sidebar from "../Extras/Sidebar";
+import Sidebar from "../Home/Sidebar";
 import HorizontalStack from "../util/HorizontalStack";
 import PostBrowser from "../Post/PostBrowser";
 

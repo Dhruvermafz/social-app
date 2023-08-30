@@ -12,8 +12,7 @@ import React, { useEffect, useState } from "react";
 import { AiFillEdit } from "react-icons/ai";
 import { isLoggedIn } from "../../helpers/authHelper";
 import ContentUpdateEditor from "../Content/ContentUpdateEditor";
-import Footer from "../Extras/Footer";
-import Loading from "../Extras/Loading";
+import Loading from "../Home/Loading";
 import UserAvatar from "../UserModal/UserAvatar";
 import HorizontalStack from "../util/HorizontalStack";
 

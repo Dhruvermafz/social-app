@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Modal, Card, Typography, Spin } from "antd";
 import { getUserLikes } from "../../api/posts";
-import Loading from "../Extras/Loading";
+import Loading from "../Home/Loading";
 import UserEntry from "./UserEntry";
 
 const UserLikeModal = ({ postId, open, setOpen }) => {

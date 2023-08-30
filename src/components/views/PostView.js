@@ -1,16 +1,18 @@
-import { Container, Stack } from "@mui/material";
 import React, { useEffect, useState } from "react";
+import { Layout, Row, Col } from "antd";
 import GoBack from "../Extras/GoBack";
 import GridLayout from "../Extras/GridLayout";
-import Loading from "../Extras/Loading";
-import Navbar from "../Extras/Navbar";
+import Loading from "../Home/Loading";
+import Navbar from "../Home/Navbar";
 import PostCard from "../Post/PostCard";
-import Sidebar from "../Extras/Sidebar";
+import Sidebar from "../Home/Sidebar";
 import { useParams } from "react-router-dom";
 import { getPost } from "../../api/posts";
 import Comments from "../Comments/Comments";
 import ErrorAlert from "../Extras/ErrorAlert";
 import { isLoggedIn } from "../../helpers/authHelper";
+
+const { Content } = Layout;
 
 const PostView = () => {
   const params = useParams();
@@ -36,26 +38,31 @@ const PostView = () => {
   }, [params.id]);
 
   return (
-    <Container>
+    <Layout>
       <Navbar />
       <GoBack />
-      <GridLayout
-        left={
-          loading ? (
-            <Loading />
-          ) : post ? (
-            <Stack spacing={2}>
-              <PostCard post={post} key={post._id} />
-
-              <Comments />
-            </Stack>
-          ) : (
-            error && <ErrorAlert error={error} />
-          )
-        }
-        right={<Sidebar />}
-      />
-    </Container>
+      <Content>
+        <GridLayout
+          left={
+            loading ? (
+              <Loading />
+            ) : post ? (
+              <Row gutter={[16, 16]}>
+                <Col span={24}>
+                  <PostCard post={post} key={post._id} />
+                </Col>
+                <Col span={24}>
+                  <Comments />
+                </Col>
+              </Row>
+            ) : (
+              error && <ErrorAlert error={error} />
+            )
+          }
+          right={<Sidebar />}
+        />
+      </Content>
+    </Layout>
   );
 };
 

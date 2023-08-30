@@ -7,7 +7,7 @@ import { useLocation, useSearchParams } from "react-router-dom";
 import { getPosts, getUserLikedPosts } from "../../api/posts";
 import { isLoggedIn } from "../../helpers/authHelper";
 import CreatePost from "../Post/CreatePost";
-import Loading from "../Extras/Loading";
+import Loading from "../Home/Loading";
 import PostCard from "./PostCard";
 import SortBySelect from "../Content/SortBySelect";
 import HorizontalStack from "../util/HorizontalStack";

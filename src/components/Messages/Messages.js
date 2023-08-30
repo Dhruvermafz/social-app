@@ -16,7 +16,7 @@ import { Link } from "react-router-dom";
 import { getMessages, sendMessage } from "../../api/messages";
 import { isLoggedIn } from "../../helpers/authHelper";
 import { socket } from "../../helpers/socketHelper";
-import Loading from "../Extras/Loading";
+import Loading from "../Home/Loading";
 import Message from "./Message";
 import SendMessage from "./SendMessage";
 import UserAvatar from "../UserModal/UserAvatar";

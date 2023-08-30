@@ -7,12 +7,12 @@ import CommentBrowser from "../Comments/CommentBrowser";
 
 import ErrorAlert from "../Extras/ErrorAlert";
 import FindUsers from "../Extras/FindUsers";
-import Footer from "../Extras/Footer";
+import Footer from "../Home/Footer";
 import GoBack from "../Extras/GoBack";
 import GridLayout from "../Extras/GridLayout";
-import Loading from "../Extras/Loading";
+import Loading from "../Home/Loading";
 import MobileProfile from "../Extras/MobileProfile";
-import Navbar from "../Extras/Navbar";
+import Navbar from "../Home/Navbar";
 import PostBrowser from "../Post/PostBrowser";
 import Profile from "../Profile/Profile";
 import ProfileTabs from "../Profile/ProfileTabs";

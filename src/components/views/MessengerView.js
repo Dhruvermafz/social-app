@@ -2,7 +2,7 @@ import { Card, Grid } from "@mui/material";
 import { Box, Container } from "@mui/system";
 import React, { useEffect, useState } from "react";
 import Messages from "../Messages/Messages";
-import Navbar from "../Extras/Navbar";
+import Navbar from "../Home/Navbar";
 import UserMessengerEntries from "../UserModal/UserMessengerEntries";
 import { getConversations } from "../../api/messages";
 import { isLoggedIn } from "../../helpers/authHelper";

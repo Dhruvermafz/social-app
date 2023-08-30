@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { getUserComments } from "../../api/posts";
 import { isLoggedIn } from "../../helpers/authHelper";
 import Comment from "./Comment";
-import Loading from "../Extras/Loading";
+import Loading from "../Home/Loading";
 import SortBySelect from "../Content/SortBySelect";
 
 const CommentBrowser = (props) => {
