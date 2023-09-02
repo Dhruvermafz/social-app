@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { login } from "../../api/users";
+import { login } from "../api/users";
 import { Input, Button, TextField } from "@mui/material";
 import { PersonOutline, LockOutlined } from "@mui/icons-material";
-import ErrorAlert from "../Extras/ErrorAlert";
-import { loginUser } from "../../helpers/authHelper";
-import Copyright from "../Home/Copyright";
-import Banner from "../Banner";
-import { icon } from "../../static";
-import Layout from "../Layout/Layout";
+import ErrorAlert from "../components/Extras/ErrorAlert";
+import { loginUser } from "../helpers/authHelper";
+import Copyright from "../components/Home/Copyright";
+import Banner from "../components/Banner";
+import { icon } from "../static";
+import Layout from "../components/Layout/Layout";
 
 const LoginView = () => {
   const [allowTrial] = useState(true);

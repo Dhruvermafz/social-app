@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { signup } from "../../api/users";
-import { loginUser } from "../../helpers/authHelper";
+import { signup } from "../api/users";
+import { loginUser } from "../helpers/authHelper";
 import { isLength, isEmail, contains } from "validator";
 import {
   Typography,
@@ -13,8 +13,8 @@ import {
   Box,
   Grid,
 } from "@mui/material";
-import Layout from "../Layout/Layout";
-import Banner from "../Banner";
+import Layout from "../components/Layout/Layout";
+import Banner from "../components/Banner";
 import "../css/signup.css";
 
 const SignupView = () => {

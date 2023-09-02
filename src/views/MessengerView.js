@@ -1,11 +1,11 @@
 import { Card, Grid } from "@mui/material";
 import { Box, Container } from "@mui/system";
 import React, { useEffect, useState } from "react";
-import Messages from "../Messages/Messages";
-import Navbar from "../Home/Navbar";
-import UserMessengerEntries from "../UserModal/UserMessengerEntries";
-import { getConversations } from "../../api/messages";
-import { isLoggedIn } from "../../helpers/authHelper";
+import Messages from "../components/Messages/Messages";
+import Navbar from "../components/Home/Navbar";
+import UserMessengerEntries from "../components/UserModal/UserMessengerEntries";
+import { getConversations } from "../api/messages";
+import { isLoggedIn } from "../helpers/authHelper";
 import { useLocation } from "react-router-dom";
 
 const MessengerView = () => {

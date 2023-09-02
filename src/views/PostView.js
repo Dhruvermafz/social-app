@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { Layout, Row, Col } from "antd";
-import GoBack from "../Extras/GoBack";
-import GridLayout from "../Extras/GridLayout";
-import Loading from "../Home/Loading";
-import Navbar from "../Home/Navbar";
-import PostCard from "../Post/PostCard";
-import Sidebar from "../Home/Sidebar";
+import GoBack from "../components/Extras/GoBack";
+import GridLayout from "../components/Extras/GridLayout";
+import Loading from "../components/Home/Loading";
+import Navbar from "../components/Home/Navbar";
+import PostCard from "../components/Post/PostCard";
+import Sidebar from "../components/Home/Sidebar";
 import { useParams } from "react-router-dom";
-import { getPost } from "../../api/posts";
-import Comments from "../Comments/Comments";
-import ErrorAlert from "../Extras/ErrorAlert";
-import { isLoggedIn } from "../../helpers/authHelper";
+import { getPost } from "../api/posts";
+import Comments from "../components/Comments/Comments";
+import ErrorAlert from "../components/Extras/ErrorAlert";
+import { isLoggedIn } from "../helpers/authHelper";
 
 const { Content } = Layout;
 
@@ -59,7 +59,7 @@ const PostView = () => {
               error && <ErrorAlert error={error} />
             )
           }
-          right={<Sidebar />}
+          // right={<Sidebar />}
         />
       </Content>
     </Layout>

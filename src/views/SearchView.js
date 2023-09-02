@@ -1,10 +1,10 @@
 import React from "react";
 import { Layout, Row, Col } from "antd";
-import GoBack from "../Extras/GoBack";
-import GridLayout from "../Extras/GridLayout";
-import Navbar from "../Home/Navbar";
-import PostBrowser from "../Post/PostBrowser";
-import Sidebar from "../Home/Sidebar";
+import GoBack from "../components/Extras/GoBack";
+import GridLayout from "../components/Extras/GridLayout";
+import Navbar from "../components/Home/Navbar";
+import PostBrowser from "../components/Post/PostBrowser";
+import Sidebar from "../components/Home/Sidebar";
 
 const { Content } = Layout;
 

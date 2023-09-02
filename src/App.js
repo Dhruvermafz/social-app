@@ -16,15 +16,15 @@ import {
 } from "react-router-dom";
 import theme from "./theme";
 
-import PostView from "./components/views/PostView";
-import CreatePostView from "./components/views/CreatePostView";
-import ProfileView from "./components/views/ProfileView";
-import LoginView from "./components/views/LoginView";
-import SignupView from "./components/views/SignupView";
-import ExploreView from "./components/views/ExploreView";
+import PostView from "./views/PostView";
+import CreatePostView from "./views/CreatePostView";
+import ProfileView from "./views/ProfileView";
+import LoginView from "./views/LoginView";
+import SignupView from "./views/SignupView";
+import ExploreView from "./views/ExploreView";
 import PrivateRoute from "./components/util/PrivateRoute";
-import SearchView from "./components/views/SearchView";
-import MessengerView from "./components/views/MessengerView";
+import SearchView from "./views/SearchView";
+import MessengerView from "./views/MessengerView";
 import { initiateSocketConnection, socket } from "./helpers/socketHelper";
 import { useEffect } from "react";
 import { BASE_URL } from "./config";

@@ -1,10 +1,10 @@
 import { Container } from "@mui/material";
 import React from "react";
-import GoBack from "../Extras/GoBack";
-import GridLayout from "../Extras/GridLayout";
-import Navbar from "../Home/Navbar";
-import PostEditor from "../Post/PostEditor";
-import Sidebar from "../Home/Sidebar";
+import GoBack from "../components/Extras/GoBack";
+import GridLayout from "../components/Extras/GridLayout";
+import Navbar from "../components/Home/Navbar";
+import PostEditor from "../components/Post/PostEditor";
+import Sidebar from "../components/Home/Sidebar";
 
 const CreatePostView = () => {
   return (

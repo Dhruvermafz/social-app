@@ -1,21 +1,21 @@
 import { Card, Container, Stack, Tab, Tabs } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams, useLocation } from "react-router-dom";
-import { getUser, updateUser } from "../../api/users";
-import { isLoggedIn } from "../../helpers/authHelper";
-import CommentBrowser from "../Comments/CommentBrowser";
+import { getUser, updateUser } from "../api/users";
+import { isLoggedIn } from "../helpers/authHelper";
+import CommentBrowser from "../components/Comments/CommentBrowser";
 
-import ErrorAlert from "../Extras/ErrorAlert";
-import FindUsers from "../Extras/FindUsers";
-import Footer from "../Home/Footer";
-import GoBack from "../Extras/GoBack";
-import GridLayout from "../Extras/GridLayout";
-import Loading from "../Home/Loading";
-import MobileProfile from "../Extras/MobileProfile";
-import Navbar from "../Home/Navbar";
-import PostBrowser from "../Post/PostBrowser";
-import Profile from "../Profile/Profile";
-import ProfileTabs from "../Profile/ProfileTabs";
+import ErrorAlert from "../components/Extras/ErrorAlert";
+import FindUsers from "../components/Extras/FindUsers";
+import Footer from "../components/Home/Footer";
+import GoBack from "../components/Extras/GoBack";
+import GridLayout from "../components/Extras/GridLayout";
+import Loading from "../components/Home/Loading";
+import MobileProfile from "../components/Extras/MobileProfile";
+import Navbar from "../components/Home/Navbar";
+import PostBrowser from "../components/Post/PostBrowser";
+import Profile from "../components/Profile/Profile";
+import ProfileTabs from "../components/Profile/ProfileTabs";
 
 const ProfileView = () => {
   const [loading, setLoading] = useState(true);
