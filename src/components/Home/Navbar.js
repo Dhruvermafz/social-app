@@ -81,19 +81,19 @@ const Navbar = () => {
           spacing={!mobile ? 2 : 0}
         >
           <HorizontalStack>
-            <Typography
-              sx={{ display: mobile ? "none" : "block" }}
-              variant={navbarWidth ? "h6" : "h4"}
-              mr={1}
-              color={theme.palette.primary.main}
-            >
-              <div className="banner">
+            <div className="banner">
+              <Typography
+                sx={{ display: mobile ? "none" : "block" }}
+                variant={navbarWidth ? "h6" : "h4"}
+                mr={1}
+                color={theme.palette.primary.main}
+              >
                 <Link to="/" color="inherit">
                   <img src={icon} alt={icon} />
                   <strong>ItsABlog</strong>
                 </Link>
-              </div>
-            </Typography>
+              </Typography>
+            </div>
           </HorizontalStack>
 
           {!navbarWidth && (

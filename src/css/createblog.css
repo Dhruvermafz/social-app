@@ -5,8 +5,8 @@
   .blog-portal-head {
     text-align: center;
     font-size: 25px;
-    color: tomato;
-    font-weight: 900;
+    color: black;
+    font-weight: 500;
     margin: 30px 0;
   }
   .blog-portal footer {
@@ -29,12 +29,12 @@
     width: 100%;
   }
   .richToolbar {
-    border: none;
+    border: 1px solid blanchedalmond;
   }
   .blog-portal .ant-input,
   .richToolbar,
   .richEditor {
-    border: 1px solid #f0f0f0;
+    border: 1px solid black;
     border-radius: 6px;
   }
   
