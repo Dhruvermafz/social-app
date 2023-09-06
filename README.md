@@ -1,7 +1,7 @@
-# social-app
 # ItsABlog - Multiuser Blogging Application
 
-ItsABlog is a multiuser blogging application designed for individuals who have a lot to say but might not always have someone to listen. With ItsABlog, you can easily share your thoughts, stories, and opinions with the world. Whether you're a passionate writer or just want to express yourself, ItsABlog provides the platform you need.
+ItsABlog is a multiuser blogging application designed for individuals who have a lot to say but might not always have someone to listen. 
+With ItsABlog, you can easily share your thoughts, stories, and opinions with the world. Whether you're a passionate writer or just want to express yourself, ItsABlog provides the platform you need.
 
 **Application Deployment**: [ItsABlog - Deployed here](https://itsablog.vercel.app/)
 
