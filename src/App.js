@@ -10,7 +10,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import theme from "./theme";
 
 import { initiateSocketConnection, socket } from "./helpers/socketHelper";
-import { Router } from "./router";
+import Router from "./router";
 
 function App() {
   initiateSocketConnection();

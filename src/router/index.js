@@ -8,15 +8,15 @@ import { CssBaseline } from "@mui/material";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import PostView from "./views/PostView";
-import CreatePostView from "./views/CreatePostView";
-import ProfileView from "./views/ProfileView";
-import LoginView from "./views/LoginView";
-import SignupView from "./views/SignupView";
-import ExploreView from "./views/ExploreView";
-import PrivateRoute from "./components/util/PrivateRoute";
-import SearchView from "./views/SearchView";
-import MessengerView from "./views/MessengerView";
+import PostView from "../views/PostView";
+import CreatePostView from "../views/CreatePostView";
+import ProfileView from "../views/ProfileView";
+import LoginView from "../views/LoginView";
+import SignupView from "../views/SignupView";
+import ExploreView from "../views/ExploreView";
+import PrivateRoute from "../components/util/PrivateRoute";
+import SearchView from "../views/SearchView";
+import MessengerView from "../views/MessengerView";
 import { routes } from "./routes";
 
 function Router() {
