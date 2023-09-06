@@ -23,7 +23,7 @@ Contributions can take various forms, including bug reports, feature requests, d
 
 ### Reporting Bugs
 
-If you encounter a bug while using ItsABlog, please open a new issue in our [issue tracker](https://github.com/itsablog/itsablog/issues). Be sure to include the following details:
+If you encounter a bug while using ItsABlog, please open a new issue in our [issue tracker](https://github.com/Dhruvermafz/social-app/issues). Be sure to include the following details:
 
 - A clear and concise description of the bug.
 - Steps to reproduce the bug.
@@ -33,7 +33,7 @@ If you encounter a bug while using ItsABlog, please open a new issue in our [iss
 
 ### Requesting Features
 
-If you have a feature request or an idea for an improvement, please open a new issue in our [issue tracker](https://github.com/itsablog/itsablog/issues). Provide a detailed description of the feature, its benefits, and any relevant context.
+If you have a feature request or an idea for an improvement, please open a new issue in our [issue tracker](https://github.com/Dhruvermafz/social-app/issues). Provide a detailed description of the feature, its benefits, and any relevant context.
 
 ### Pull Request Process
 

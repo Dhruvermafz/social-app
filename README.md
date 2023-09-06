@@ -8,7 +8,7 @@ With ItsABlog, you can easily share your thoughts, stories, and opinions with th
 ## Features
 
 ### 1. Create, Read, Update, and Delete Posts
-Easily create, edit, and delete your blog posts. Share your experiences and ideas with the ItsABlog community.
+Easily create, edit, and delete your blogs. Share your experiences and ideas with the ItsABlog community.
 
 ### 2. Like and Unlike Posts
 Show your appreciation for other users' posts by liking them, and easily undo your like if you change your mind.
