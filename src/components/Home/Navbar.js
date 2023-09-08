@@ -126,7 +126,7 @@ const Navbar = () => {
                 </IconButton>
                 <IconButton
                   component={Link}
-                  to={`${routes.PROFILE(userId)}` + username}
+                  to={`${routes.PROFILE(user)}` + username}
                 >
                   <UserAvatar width={30} height={30} username={user.username} />
                 </IconButton>
