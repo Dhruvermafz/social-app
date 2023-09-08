@@ -1,5 +1,10 @@
-import { Button, Card, Link, Stack, Typography } from "@mui/material";
-import { alignProperty } from "@mui/material/styles/cssUtils";
+import {
+  Button,
+  Card,
+  Stack,
+  Typography,
+  CircularProgress,
+} from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useEffect, useState } from "react";
 import { MdSettingsInputAntenna } from "react-icons/md";
@@ -7,7 +12,6 @@ import { useLocation, useSearchParams } from "react-router-dom";
 import { getPosts, getUserLikedPosts } from "../../api/posts";
 import { isLoggedIn } from "../../helpers/authHelper";
 import CreatePost from "../Post/CreatePost";
-import Loading from "../Home/Loading";
 import PostCard from "./PostCard";
 import SortBySelect from "../Content/SortBySelect";
 import HorizontalStack from "../util/HorizontalStack";
@@ -148,7 +152,11 @@ const PostBrowser = (props) => {
           />
         ))}
 
-        {loading && <Loading />}
+        {loading && (
+          <Box display="flex" justifyContent="center">
+            <CircularProgress />
+          </Box>
+        )}
         {end ? (
           <Stack py={5} alignItems="center">
             <Typography variant="h5" color="text.secondary" gutterBottom>

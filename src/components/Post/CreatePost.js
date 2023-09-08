@@ -9,7 +9,7 @@ const CreatePost = () => {
     <Button
       variant="outlined"
       size="medium"
-      onClick={() => navigate("/posts/create")}
+      onClick={() => navigate("/blog/create")}
       sx={{
         gap: "0.2rem",
         whiteSpace: "nowrap",

@@ -25,6 +25,7 @@ import UserAvatar from "../UserModal/UserAvatar";
 import HorizontalStack from "../util/HorizontalStack";
 import { RiContrast2Line } from "react-icons/ri";
 import { icon } from "../../static";
+import { routes } from "../../router/routes";
 const Navbar = () => {
   const navigate = useNavigate();
   const user = isLoggedIn();
@@ -120,20 +121,31 @@ const Navbar = () => {
             </IconButton>
             {user ? (
               <>
-                <IconButton component={Link} to={"/messenger"}>
+                <IconButton component={Link} to={`${routes.MESSANGER}`}>
                   <AiFillMessage />
                 </IconButton>
-                <IconButton component={Link} to={"/users/" + username}>
+                <IconButton
+                  component={Link}
+                  to={`${routes.PROFILE(userId)}` + username}
+                >
                   <UserAvatar width={30} height={30} username={user.username} />
                 </IconButton>
                 <Button onClick={handleLogout}>Logout</Button>
               </>
             ) : (
               <>
-                <Button variant="text" sx={{ minWidth: 80 }} href="/signup">
+                <Button
+                  variant="text"
+                  sx={{ minWidth: 80 }}
+                  href={`${routes.SIGNUP}`}
+                >
                   Sign Up
                 </Button>
-                <Button variant="text" sx={{ minWidth: 65 }} href="/login">
+                <Button
+                  variant="text"
+                  sx={{ minWidth: 65 }}
+                  href={`${routes.LOGIN}`}
+                >
                   Login
                 </Button>
               </>

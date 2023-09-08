@@ -8,7 +8,7 @@ import "react-router-dom";
 import { ThemeProvider } from "@mui/material/styles";
 
 import theme from "./theme";
-
+import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import { initiateSocketConnection, socket } from "./helpers/socketHelper";
 import Router from "./router";
 
