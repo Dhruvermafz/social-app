@@ -61,7 +61,7 @@ const Navbar = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate("/search?" + new URLSearchParams({ search }));
+    navigate(routes.SEARCH + new URLSearchParams({ search }));
   };
 
   const handleSearchIcon = (e) => {
@@ -126,7 +126,7 @@ const Navbar = () => {
                 </IconButton>
                 <IconButton
                   component={Link}
-                  to={`${routes.PROFILE(user)}` + username}
+                  to={`${routes.PROFILE(user.username)}`}
                 >
                   <UserAvatar width={30} height={30} username={user.username} />
                 </IconButton>

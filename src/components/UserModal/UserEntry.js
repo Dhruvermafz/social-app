@@ -13,7 +13,7 @@ const UserEntry = ({ username }) => {
         </Row>
       </Col>
       <Col>
-        <Link to={"/users/" + username}>View</Link>
+        <Link to={"/" + username}>View</Link>
       </Col>
     </Row>
   );

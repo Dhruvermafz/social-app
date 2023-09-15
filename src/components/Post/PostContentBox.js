@@ -9,7 +9,7 @@ const PostContentBox = ({ clickable, post, editing, children }) => {
 
   const handleClick = () => {
     if (clickable && !editing) {
-      navigate(`/posts/${post._id}`);
+      navigate(`/blog/${post._id}`);
     }
   };
 

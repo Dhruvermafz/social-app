@@ -25,7 +25,7 @@ function Router() {
       <CssBaseline />
       <Routes>
         <Route path={routes.FEED} element={<ExploreView />} />
-        <Route path={routes.READ_BLOG(":blogId")} element={<PostView />} />
+        <Route path={routes.READ_BLOG(":id")} element={<PostView />} />
         <Route
           path={routes.CREATE_BLOG}
           element={
@@ -43,7 +43,7 @@ function Router() {
           }
         />
         <Route path={routes.SEARCH} element={<SearchView />} />
-        <Route path={routes.PROFILE(":userId")} element={<ProfileView />} />
+        <Route path={routes.PROFILE(":user")} element={<ProfileView />} />
         <Route path={routes.LOGIN} element={<LoginView />} />
         <Route path={routes.SIGNUP} element={<SignupView />} />
       </Routes>

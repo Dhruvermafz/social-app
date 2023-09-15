@@ -60,7 +60,7 @@ const PostEditor = () => {
     if (data && data.error) {
       setServerError(data.error);
     } else {
-      navigate("/posts/" + data._id);
+      navigate("/blog/" + data._id);
     }
   };
 

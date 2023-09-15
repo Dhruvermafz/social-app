@@ -7,10 +7,10 @@ export const routes = {
   FEED: "/",
   SEARCH: "/search",
   SEETINGS: "/settings/",
-  PROFILE: (userId) => `/${userId}`,
+  PROFILE: (user) => `/${user}`,
 
   CREATE_BLOG: "/blog/create",
-  READ_BLOG: (blogId) => `/blog/${blogId}`,
+  READ_BLOG: (id) => `/blog/${id}`,
   EDIT_BLOG: (blogId) => `/blog/${blogId}/edit`,
 
   MESSANGER: "/messenger/",
