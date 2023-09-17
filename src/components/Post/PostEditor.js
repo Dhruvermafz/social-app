@@ -78,7 +78,7 @@ const PostEditor = () => {
             <HorizontalStack spacing={2}>
               <UserAvatar width={50} height={50} username={user.username} />
               <h2 className="blog-portal-head">
-                What's in you mind lord commander {user.username}?
+                What's in your mind lord commander {user.username}?
               </h2>
             </HorizontalStack>
           )}
