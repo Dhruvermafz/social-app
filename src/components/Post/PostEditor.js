@@ -45,14 +45,16 @@ const PostEditor = () => {
     e.preventDefault();
 
     setLoading(true);
-    const contentRaw = JSON.stringify(
-      convertToRaw(editorState.getCurrentContent())
-    );
+    // const contentRaw = JSON.stringify(
+    //   convertToRaw(editorState.getCurrentContent())
+    // );
+    const contentState = editorState.getCurrentContent();
+    const plainText = contentState.getPlainText();
 
     const data = await createPost(
       {
         title: formData.title,
-        content: contentRaw,
+        content: plainText,
       },
       isLoggedIn()
     );
