@@ -13,6 +13,22 @@ const Footer = () => {
           </a>
           ! ⭐
         </Typography>
+        <Typography variant="subtitle1">
+          <a href="https://github.com/Dhruvermafz/social-app" target="_blank">
+            About
+          </a>
+        </Typography>
+
+        <Typography variant="subtitle1">
+          <a href="https://github.com/Dhruvermafz/social-app" target="_blank">
+            Settings
+          </a>
+        </Typography>
+        <Typography variant="subtitle1">
+          <a href="https://github.com/Dhruvermafz/social-app" target="_blank">
+            Code Of Conduct
+          </a>
+        </Typography>
       </Card>
     </Box>
   );

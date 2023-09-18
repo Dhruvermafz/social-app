@@ -5,7 +5,7 @@ import { Button as AntButton } from "antd";
 const Button = (props) => {
   return (
     <AntButton
-      className={`Button ${props.className}`}
+      className="sexy-button"
       disabled={props.disabled}
       href={props.disabled}
       icon={props.icon}
