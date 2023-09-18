@@ -6,6 +6,8 @@ import {
   Stack,
   Typography,
   useTheme,
+  Menu,
+  MenuItem,
 } from "@mui/material";
 import { Box } from "@mui/system";
 import { AiFillCheckCircle, AiFillEdit, AiFillMessage } from "react-icons/ai";
@@ -20,7 +22,7 @@ import ContentUpdateEditor from "../Content/ContentUpdateEditor";
 import Markdown from "../Markdown/Markdown";
 import { MdCancel } from "react-icons/md";
 import { BiTrash } from "react-icons/bi";
-import { BsReplyFill } from "react-icons/bs";
+import { BsReplyFill, BsThreeDots } from "react-icons/bs";
 import UserLikePreview from "../UserModal/UserLikePreview";
 
 const PostCard = (props) => {
@@ -30,7 +32,7 @@ const PostCard = (props) => {
   const user = isLoggedIn();
   const theme = useTheme();
   const { primary: iconColor, error: errorColor } = theme.palette;
-
+  const [anchorEl, setAnchorEl] = useState(null);
   const [editing, setEditing] = useState(false);
   const [confirm, setConfirm] = useState(false);
   const [post, setPost] = useState(props.post);
@@ -40,6 +42,14 @@ const PostCard = (props) => {
   if (preview === "primary") {
     maxHeight = 250;
   }
+
+  const handleMenuClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+  };
 
   const handleDeletePost = async (e) => {
     e.stopPropagation();
@@ -118,28 +128,52 @@ const PostCard = (props) => {
                   (isAuthor || user.isAdmin) &&
                   preview !== "secondary" && (
                     <HorizontalStack>
-                      <IconButton
+                      <div>
+                        <IconButton
+                          disabled={loading}
+                          size="small"
+                          onClick={handleMenuClick}
+                        >
+                          <BsThreeDots />
+                        </IconButton>
+                        <Menu
+                          anchorEl={anchorEl}
+                          open={Boolean(anchorEl)}
+                          onClose={handleMenuClose}
+                        >
+                          <MenuItem onClick={handleEditPost}>
+                            {editing ? (
+                              <MdCancel color={iconColor.main} />
+                            ) : (
+                              <AiFillEdit color={iconColor.main} />
+                            )}
+                            Edit
+                          </MenuItem>
+                          {/* <IconButton
                         disabled={loading}
                         size="small"
-                        onClick={handleEditPost}
+                        
                       >
-                        {editing ? (
-                          <MdCancel color={iconColor.main} />
-                        ) : (
-                          <AiFillEdit color={iconColor.main} />
-                        )}
-                      </IconButton>
-                      <IconButton
+                      
+                      </IconButton> */}
+
+                          <MenuItem onClick={handleDeletePost}>
+                            {confirm ? (
+                              <AiFillCheckCircle color={errorColor.main} />
+                            ) : (
+                              <BiTrash color={errorColor.main} />
+                            )}
+                            Delete
+                          </MenuItem>
+                        </Menu>
+                        {/* <IconButton
                         disabled={loading}
                         size="small"
-                        onClick={handleDeletePost}
+                       
                       >
-                        {confirm ? (
-                          <AiFillCheckCircle color={errorColor.main} />
-                        ) : (
-                          <BiTrash color={errorColor.main} />
-                        )}
-                      </IconButton>
+                       
+                      </IconButton> */}
+                      </div>
                     </HorizontalStack>
                   )}
               </Box>

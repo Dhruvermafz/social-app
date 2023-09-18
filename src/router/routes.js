@@ -5,7 +5,7 @@ export const routes = {
   EMAIL_SUCCESS: (userId) => `/email/success/${userId}`,
   EMAIL_FAILURE: "/email/failure",
   FEED: "/",
-  SEARCH: "/search",
+  SEARCH: "/search/",
   SEETINGS: "/settings/",
   PROFILE: (user) => `/${user}`,
 

@@ -18,7 +18,7 @@ import PrivateRoute from "../components/util/PrivateRoute";
 import SearchView from "../views/SearchView";
 import MessengerView from "../views/MessengerView";
 import { routes } from "./routes";
-
+import SettingsView from "../components/Settings";
 function Router() {
   return (
     <BrowserRouter>
@@ -46,6 +46,7 @@ function Router() {
         <Route path={routes.PROFILE(":user")} element={<ProfileView />} />
         <Route path={routes.LOGIN} element={<LoginView />} />
         <Route path={routes.SIGNUP} element={<SignupView />} />
+        <Route path={routes.SEETINGS} element={<SettingsView />} />
       </Routes>
     </BrowserRouter>
   );

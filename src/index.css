@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Electrolize&family=Open+Sans&family=Montserrat:wght@500&family=Ubuntu&display=swap");
+/*
+font-family: 'Electrolize', sans-serif;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Ubuntu', sans-serif;
+*/
+
+* {
+  margin: 0;
+  font-family: "Ubuntu", sans-serif;
+  box-sizing: border-box;
+  text-decoration: none;
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+strong {
+  font-family: "Electrolize", sans-serif;
+  color: tomato;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.usernameInput {
+  min-width: 30vw;
+}
