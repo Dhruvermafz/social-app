@@ -19,6 +19,7 @@ import SearchView from "../views/SearchView";
 import MessengerView from "../views/MessengerView";
 import { routes } from "./routes";
 import SettingsView from "../components/Settings";
+import Error404 from "../components/Results/404";
 function Router() {
   return (
     <BrowserRouter>
@@ -43,10 +44,12 @@ function Router() {
           }
         />
         <Route path={routes.SEARCH} element={<SearchView />} />
-        <Route path={routes.PROFILE(":user")} element={<ProfileView />} />
+        <Route path={routes.PROFILE(":id")} element={<ProfileView />} />
         <Route path={routes.LOGIN} element={<LoginView />} />
         <Route path={routes.SIGNUP} element={<SignupView />} />
-        <Route path={routes.SEETINGS} element={<SettingsView />} />
+        <Route path={routes.SETTINGS} element={<SettingsView />} />
+
+        <Route path={routes.Error404} element={<Error404 />} />
       </Routes>
     </BrowserRouter>
   );

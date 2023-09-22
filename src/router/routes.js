@@ -6,7 +6,7 @@ export const routes = {
   EMAIL_FAILURE: "/email/failure",
   FEED: "/",
   SEARCH: "/search/",
-  SEETINGS: "/settings/",
+  SETTINGS: "/settings/",
   PROFILE: (user) => `/${user}`,
 
   CREATE_BLOG: "/blog/create",
@@ -14,4 +14,6 @@ export const routes = {
   EDIT_BLOG: (blogId) => `/blog/${blogId}/edit`,
 
   MESSANGER: "/messenger/",
+
+  Error404: "/404/",
 };

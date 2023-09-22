@@ -134,7 +134,6 @@ const ProfileView = () => {
             />
 
             <FindUsers />
-            <Footer />
           </Stack>
         }
       />
