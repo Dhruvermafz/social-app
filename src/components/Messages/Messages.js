@@ -187,7 +187,7 @@ const Messages = (props) => {
               width={30}
             />
             <Typography>
-              <Link to={"/users/" + props.conservant.username}>
+              <Link to={"/" + props.conservant.username}>
                 <b>{props.conservant.username}</b>
               </Link>
             </Typography>
@@ -227,9 +227,9 @@ const Messages = (props) => {
       spacing={2}
     >
       <AiFillMessage size={80} />
-      <Typography variant="h5">PostIt Messenger</Typography>
+      <Typography variant="h5">ItsABlog Messenger</Typography>
       <Typography color="text.secondary">
-        Privately message other users on PostIt
+        Privately message other users on ItsABlog.
       </Typography>
     </Stack>
   );

@@ -1,82 +1,95 @@
+/* Navbar Styles */
 .Navbar {
-    display: flex;
-    width: 100vw;
-    background-color: rgb(30, 30, 30);
-    align-items: center;
-    transition: 0.2s ease-in-out;
-    z-index: 1;
-  }
-  .Navbar-fixed {
-    top: 0;
-    position: fixed;
-  }
-  .Navbar-btw {
-    justify-content: space-between;
-  }
-  .Navbar-end {
-    justify-content: flex-end;
-  }
-  .Navbar-left {
-    display: flex;
-  }
+  display: flex;
+  align-items: center;
+  transition: 0.2s ease-in-out;
+  z-index: 1;
+}
+
+.Navbar-fixed {
+  top: 0;
+  position: fixed;
+}
+
+.Navbar-btw {
+  justify-content: space-between;
+}
+
+.Navbar-end {
+  justify-content: flex-end;
+}
+
+.Navbar-left {
+  display: flex;
+}
+
+/* Navbar Navigation Links */
+.Navbar nav {
+  width: 8vw;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  cursor: pointer;
+  /* background-color: white; */
+}
+
+.Navbar nav p {
+  margin: 0;
+  font-size: 1.5vh;
+  font-family: "Ubuntu", sans-serif;
+  color: white;
+}
+
+.Navbar nav span {
+  color: tomato;
+}
+
+.Navbar nav:hover span,
+.Navbar nav:active span {
+  color: dodgerblue;
+}
+
+/* Responsive Styles for Navbar */
+@media only screen and (max-width: 600px) {
   .Navbar nav {
-    width: 8vw;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    cursor: pointer;
-    /* background-color: white; */
+    width: 18vw;
   }
   .Navbar nav p {
-    margin: 0;
-    font-size: 1.5vh;
-    font-family: "Ubuntu", sans-serif;
-    color: white;
+    font-size: 1.2vh;
   }
-  .Navbar nav span {
-    color: tomato;
-  }
-  .Navbar nav:hover span,
-  .Navbar nav:active span {
-    color: dodgerblue;
-  }
-  
-  @media only screen and (max-width: 600px) {
-    .Navbar nav {
-      width: 18vw;
-    }
-    .Navbar nav p {
-      font-size: 1.2vh;
-    }
-  } 
-  
+}
+
+/* Banner Styles */
+.banner {
+  background-color: var(--bannerBg); /* Make sure --bannerBg is defined */
+  display: flex;
+  align-items: center;
+  height: 8vh;
+  padding: 0 80px; /* Adjust as needed */
+  transition: height 0.3s ease-in-out;
+}
+
+.banner img {
+  height: 45px;
+  margin-right: 15px;
+}
+
+.banner strong {
+  font-size: 32px;
+}
+
+/* Responsive Styles for Banner */
+@media only screen and (max-width: 600px) {
   .banner {
-    background-color: var(--bannerBg);
-    display: flex;
-    align-items: center;
-    height: 8vh;
-    padding: 0 80px;
-    transition: height 0.3s ease-in-out;
+    padding: 0 50px; /* Adjust as needed */
   }
   .banner img {
-    height: 45px;
+    height: 40px;
     margin-right: 15px;
   }
   .banner strong {
-    font-size: 32px;
+    font-size: 30px;
   }
-  
-  @media only screen and (max-width: 600px) {
-    .banner {
-      padding: 0 50px;
-    }
-    .banner img {
-      height: 40px;
-      margin-right: 15px;
-    }
-    .banner strong {
-      font-size: 30px;
-    }
-  }
+}

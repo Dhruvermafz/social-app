@@ -16,7 +16,7 @@ const ContentDetails = ({ username, createdAt, edited, preview }) => {
           onClick={(e) => {
             e.stopPropagation();
           }}
-          to={"/users/" + username}
+          to={"/" + username}
         >
           {username}
         </Link>

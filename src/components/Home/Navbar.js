@@ -7,10 +7,12 @@ import {
   Typography,
   Button,
   InputAdornment,
+  MenuItem,
 } from "@mui/material";
 import "../../css/navbar.css";
 import { Box } from "@mui/system";
 import React, { useEffect, useState } from "react";
+import "../../css/navbar.css";
 import "react-icons/ai";
 import "react-icons/ri";
 import {
@@ -26,6 +28,7 @@ import HorizontalStack from "../util/HorizontalStack";
 import { RiContrast2Line } from "react-icons/ri";
 import { icon } from "../../static";
 import { routes } from "../../router/routes";
+import { Menu } from "@mui/icons-material";
 const Navbar = () => {
   const navigate = useNavigate();
   const user = isLoggedIn();
@@ -34,6 +37,7 @@ const Navbar = () => {
   const [search, setSearch] = useState("");
   const [searchIcon, setSearchIcon] = useState(false);
   const [width, setWindowWidth] = useState(0);
+  const [menu, setMenu] = useState(null);
 
   useEffect(() => {
     updateDimensions();
@@ -130,6 +134,7 @@ const Navbar = () => {
                 >
                   <UserAvatar width={30} height={30} username={user.username} />
                 </IconButton>
+
                 <Button onClick={handleLogout}>Logout</Button>
               </>
             ) : (
