@@ -6,7 +6,7 @@ import { store } from "../store";
 const DeleteBlogView = (pk, title, callback) => {
   return Modal.confirm({
     title: `Delete '${title}'`,
-    content: `Are you really wannt to delete this blog '${title}'. This action cannot be reversed.`,
+    content: `Are you really want to delete '${title}'. This action cannot be reversed.`,
     centered: true,
     okText: `Delete`,
     okButtonProps: {

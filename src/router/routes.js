@@ -2,7 +2,7 @@ export const routes = {
   LOGIN: "/login/",
   SIGNUP: "/signup/",
   SIGNUP_SUCCESS: "/signup/success",
-  EMAIL_SUCCESS: (userId) => `/email/success/${userId}`,
+  EMAIL_CONFIRMATION: (userId) => `/email/confirm/${userId}`,
   EMAIL_FAILURE: "/email/failure",
   FEED: "/",
   SEARCH: "/search/",

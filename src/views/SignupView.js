@@ -16,6 +16,7 @@ import {
 import Layout from "../components/Layout/Layout";
 import Banner from "../components/Banner";
 import "../css/signup.css";
+import { BASE_URL } from "../config";
 
 const SignupView = () => {
   const navigate = useNavigate();
@@ -52,8 +53,10 @@ const SignupView = () => {
     if (data.error) {
       setServerError(data.error);
     } else {
-      loginUser(data);
-      navigate("/");
+      const userId = data.userId;
+      navigate(`/${BASE_URL}/email/confirm/${userId}`);
+      // loginUser(data);
+      // navigate("/");
     }
   };
 
