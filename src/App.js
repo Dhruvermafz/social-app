@@ -12,7 +12,7 @@ import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import { initiateSocketConnection, socket } from "./helpers/socketHelper";
 import Router from "./router";
 import { useState, useEffect } from "react";
-
+import Footer from "./components/Home/Footer";
 function App() {
   const [darkmode, setDarkMode] = useState(true);
   const [isOnline, setIsOnline] = useState(true);

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { notify } from "react-notify-toast";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Spinner from "./Spinner";
 import { BASE_URL } from "../../config";
 
@@ -12,17 +13,18 @@ export default class Confirm extends Component {
   componentDidMount = () => {
     const { id } = this.props.match.params;
 
-    fetch(`${BASE_URL}/email/confirm/${id}`)
+    fetch(`/email/confirm/${id}`)
       .then((res) => res.json())
       .then((data) => {
         this.setState({ confirming: false });
-        notify.show(data.msg);
+        toast(data.msg);
       })
       .catch((err) => console.log(err));
   };
 
   render = () => (
     <div className="confirm">
+      <ToastContainer />
       {this.state.confirming ? (
         <Spinner size="8x" spinning={"spinning"} />
       ) : (

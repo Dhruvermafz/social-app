@@ -54,7 +54,7 @@ const SignupView = () => {
       setServerError(data.error);
     } else {
       const userId = data.userId;
-      navigate(`/${BASE_URL}/email/confirm/${userId}`);
+      navigate(`/email/confirm/${userId}`);
       // loginUser(data);
       // navigate("/");
     }
