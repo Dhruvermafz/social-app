@@ -7,7 +7,7 @@ import "react-router-dom";
 import { CssBaseline } from "@mui/material";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-
+import ConfirmMail from "../components/Extras/ConfirmMail";
 import PostView from "../views/PostView";
 import CreatePostView from "../views/CreatePostView";
 import ProfileView from "../views/ProfileView";
@@ -20,6 +20,7 @@ import MessengerView from "../views/MessengerView";
 import { routes } from "./routes";
 import SettingsView from "../components/Settings";
 import Error404 from "../components/Results/404";
+import Copyright from "../components/Home/Copyright";
 function Router() {
   return (
     <BrowserRouter>
@@ -43,6 +44,7 @@ function Router() {
             </PrivateRoute>
           }
         />
+
         <Route path={routes.SEARCH} element={<SearchView />} />
         <Route path={routes.PROFILE(":id")} element={<ProfileView />} />
         <Route path={routes.LOGIN} element={<LoginView />} />
@@ -51,6 +53,7 @@ function Router() {
 
         <Route path={routes.Error404} element={<Error404 />} />
       </Routes>
+      <Copyright />
     </BrowserRouter>
   );
 }

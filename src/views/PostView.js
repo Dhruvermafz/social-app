@@ -59,7 +59,7 @@ const PostView = () => {
               error && <ErrorAlert error={error} />
             )
           }
-          right={<Sidebar />}
+          // right={<Sidebar />}
         />
       </Content>
     </Layout>

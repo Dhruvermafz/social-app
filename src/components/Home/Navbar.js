@@ -7,7 +7,10 @@ import {
   Typography,
   Button,
   InputAdornment,
-  MenuItem,
+  List,
+  ListItem,
+  ListItemText,
+  Popover,
 } from "@mui/material";
 import "../../css/navbar.css";
 import { Box } from "@mui/system";
@@ -28,7 +31,7 @@ import HorizontalStack from "../util/HorizontalStack";
 import { RiContrast2Line } from "react-icons/ri";
 import { icon } from "../../static";
 import { routes } from "../../router/routes";
-import { Menu } from "@mui/icons-material";
+
 const Navbar = () => {
   const navigate = useNavigate();
   const user = isLoggedIn();
@@ -38,6 +41,7 @@ const Navbar = () => {
   const [searchIcon, setSearchIcon] = useState(false);
   const [width, setWindowWidth] = useState(0);
   const [menu, setMenu] = useState(null);
+  const [avatarMenuAnchor, setAvatarMenuAnchor] = useState(null);
 
   useEffect(() => {
     updateDimensions();
@@ -59,17 +63,30 @@ const Navbar = () => {
     navigate("/login");
   };
 
+  const handleAvatarClick = (e) => {
+    setAvatarMenuAnchor(e.currentTarget);
+  };
+
+  const handleAvatarMenuClose = () => {
+    setAvatarMenuAnchor(null);
+  };
+
   const handleChange = (e) => {
     setSearch(e.target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate(routes.SEARCH + new URLSearchParams({ search }));
+
+    navigate(`${routes.SEARCH}/${search}`);
   };
 
   const handleSearchIcon = (e) => {
     setSearchIcon(!searchIcon);
+  };
+
+  const handleCloseMenu = () => {
+    setMenu(null);
   };
 
   return (
@@ -128,14 +145,40 @@ const Navbar = () => {
                 <IconButton component={Link} to={`${routes.MESSANGER}`}>
                   <AiFillMessage />
                 </IconButton>
-                <IconButton
-                  component={Link}
-                  to={`${routes.PROFILE(user.username)}`}
-                >
+                <IconButton onClick={handleAvatarClick} sx={{ padding: 0 }}>
                   <UserAvatar width={30} height={30} username={user.username} />
                 </IconButton>
-
-                <Button onClick={handleLogout}>Logout</Button>
+                <Popover
+                  open={Boolean(avatarMenuAnchor)}
+                  anchorEl={avatarMenuAnchor}
+                  onClose={handleAvatarMenuClose}
+                  anchorOrigin={{
+                    vertical: "bottom",
+                    horizontal: "right",
+                  }}
+                  transformOrigin={{
+                    vertical: "top",
+                    horizontal: "right",
+                  }}
+                >
+                  <List
+                    anchorEl={menu}
+                    open={Boolean(menu)}
+                    onClose={handleCloseMenu}
+                  >
+                    <ListItem
+                      button
+                      component={Link}
+                      to={`${routes.PROFILE(user.username)}`}
+                    >
+                      <ListItemText primary="Profile" />
+                    </ListItem>
+                    <ListItem button onClick={handleLogout}>
+                      <ListItemText primary="Logout" />
+                    </ListItem>
+                  </List>
+                </Popover>
+                {/* <Button onClick={handleLogout}>Logout</Button> */}
               </>
             ) : (
               <>
