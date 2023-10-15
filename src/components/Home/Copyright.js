@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Copyright = () => {
   return (
     <Typography variant="subtitle1" color="text.secondary">
-      Copyright © 2022{" "}
+      Copyright © {new Date().getFullyear()}{" "}
       <Link to="/" color="inherit">
         ItsABlog
       </Link>
