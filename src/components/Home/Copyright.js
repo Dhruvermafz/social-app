@@ -11,7 +11,8 @@ const Copyright = () => {
   const currentYear = getCurrentYear();
 
   return (
-    <Typography variant="subtitle1" color="text.secondary">
+    <div>
+      <Typography variant="subtitle1" color="text.secondary">
       &copy; {currentYear}{" "}
       <Link to="/" color="inherit">
         ItsABlog
@@ -29,6 +30,7 @@ const Copyright = () => {
         License
       </Link>
     </Typography>
+    </div>
   );
 };
 
