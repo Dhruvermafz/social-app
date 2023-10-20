@@ -44,6 +44,7 @@ const LoginView = () => {
 
   return (
     <>
+<<<<<<< HEAD
       <Banner />
       <Layout>
         <div className="portal-login">
@@ -64,49 +65,71 @@ const LoginView = () => {
           )}
           <div className="portal">
             <h2 className="portal-head">Login</h2>
+=======
+      <div className="login-container">
+        <Banner />
+        <Layout>
+          <div className="portal-login">
+            {allowTrial && (
+              <div className="portal-notif">
+                <h3>Trial Use</h3>
+                <ul>
+                  <li>
+                    <span>Email </span>: &nbsp; <span>trial@trial.com</span>
+                  </li>
+                  <li>
+                    <span>Password </span>: &nbsp; <span>trial123</span>
+                  </li>
+                </ul>
+              </div>
+            )}
+            <div className="portal">
+              <h2 className="portal-head">Login</h2>
+>>>>>>> 38706b6f752dce243175d032087f4f52d58b4cfb
 
-            <form onSubmit={handleSubmit}>
-              <TextField
-                label="Email Address"
-                name="email"
-                variant="outlined"
-                fullWidth
-                size="small"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                type="email"
-                margin="normal"
-              />
-              <TextField
-                label="Password"
-                name="password"
-                variant="outlined"
-                fullWidth
-                size="small"
-                value={formData.password}
-                onChange={handleChange}
-                required
-                type="password"
-                margin="normal"
-              />
-              <ErrorAlert error={serverError} />
-              <Button
-                type="submit"
-                variant="contained"
-                color="primary"
-                className="portal-submit"
-              >
-                Login
-              </Button>
-            </form>
-            <Link to="/signup" className="portal-link">
-              Create an account?
-            </Link>
+              <form onSubmit={handleSubmit}>
+                <TextField
+                  label="Email Address"
+                  name="email"
+                  variant="outlined"
+                  fullWidth
+                  size="small"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  type="email"
+                  margin="normal"
+                />
+                <TextField
+                  label="Password"
+                  name="password"
+                  variant="outlined"
+                  fullWidth
+                  size="small"
+                  value={formData.password}
+                  onChange={handleChange}
+                  required
+                  type="password"
+                  margin="normal"
+                />
+                <ErrorAlert error={serverError} />
+                <Button
+                  type="submit"
+                  variant="contained"
+                  color="primary"
+                  className="portal-submit"
+                >
+                  Login
+                </Button>
+              </form>
+              <Link to="/signup" className="portal-link">
+                Create an account?
+              </Link>
+            </div>
           </div>
-        </div>
-      </Layout>
-      <Copyright />
+        </Layout>
+        {/* <Copyright /> */}
+      </div>
     </>
   );
 };

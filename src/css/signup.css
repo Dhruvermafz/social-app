@@ -1,3 +1,9 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 .auth-layout {
     display: flex;
     align-items: center;
@@ -15,6 +21,10 @@
     height: auto;
   }
   
+  .login-container{
+    height: calc(100vh - 28px);
+    overflow: hidden;
+  }
   .portal {
     border: 2px solid #ebebeb;
     padding: 15px 30px;
