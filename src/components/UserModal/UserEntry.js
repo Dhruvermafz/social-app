@@ -12,9 +12,6 @@ const UserEntry = ({ username }) => {
           <Typography.Text>{username}</Typography.Text>
         </Row>
       </Col>
-      <Col>
-        <Link to={"/" + username}>View</Link>
-      </Col>
     </Row>
   );
 };

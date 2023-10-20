@@ -1,17 +1,17 @@
-import { Card, Link, Stack, TextField, Typography } from "@mui/material";
-import Button from "../Button";
-import "../../css/createblog.css";
-import { Box } from "@mui/system";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Card, Input, Button, Typography } from "antd";
 import { createPost } from "../../api/posts";
 import ErrorAlert from "../Extras/ErrorAlert";
 import { isLoggedIn } from "../../helpers/authHelper";
+import { Editor } from "react-draft-wysiwyg";
+import { EditorState, ContentState, convertToRaw } from "draft-js";
+import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+import "../../css/createblog.css";
+import { useNavigate } from "react-router-dom";
 import HorizontalStack from "../util/HorizontalStack";
 import UserAvatar from "../UserModal/UserAvatar";
-import { Editor } from "react-draft-wysiwyg";
-import { EditorState, convertToRaw } from "draft-js";
-import "react-draft-wysiwyg/dist/react-draft-wysiwyg";
+import SearchBooks from "../Extras/SearchFilter";
+
 const PostEditor = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
@@ -20,9 +20,12 @@ const PostEditor = () => {
     title: "",
     content: "",
   });
+  const [selectedBook, setSelectedBook] = useState(null);
 
+  const handleBookSelect = (book) => {
+    setSelectedBook(book);
+  };
   const [serverError, setServerError] = useState("");
-  const [errors, setErrors] = useState({});
   const user = isLoggedIn();
 
   const handleEditorChange = (editorState) => {
@@ -31,17 +34,13 @@ const PostEditor = () => {
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    const errors = validate();
-    setErrors(errors);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     setLoading(true);
-    // const contentRaw = JSON.stringify(
-    //   convertToRaw(editorState.getCurrentContent())
-    // );
+
     const contentState = editorState.getCurrentContent();
     const plainText = contentState.getPlainText();
 
@@ -60,12 +59,6 @@ const PostEditor = () => {
     }
   };
 
-  const validate = () => {
-    const errors = {};
-
-    return errors;
-  };
-
   return (
     <div className="blog-portal-wrapper">
       <Card>
@@ -73,9 +66,11 @@ const PostEditor = () => {
           {user && (
             <HorizontalStack spacing={2}>
               <UserAvatar width={50} height={50} username={user.username} />
-              <h2 className="blog-portal-head">
-                What's in your mind {user.username}?
-              </h2>
+              <div style={{ display: "flex", alignItems: "center" }}>
+                <h2 className="blog-portal-head">
+                  What's in your mind {user.username}?
+                </h2>
+              </div>
             </HorizontalStack>
           )}
 
@@ -85,30 +80,17 @@ const PostEditor = () => {
             </a>
           </Typography>
 
-          <Box component="form" onSubmit={handleSubmit}>
-            <TextField
-              fullWidth
-              label="Title"
-              required
+          <SearchBooks onBookSelect={handleBookSelect} />
+
+          <form onSubmit={handleSubmit}>
+            <Input
+              placeholder="Title"
               name="title"
-              margin="normal"
               onChange={handleChange}
-              error={errors.title !== undefined}
-              helperText={errors.title}
+              value={formData.title}
+              style={{ width: "100%", marginBottom: "1rem" }}
             />
 
-            {/* <TextField
-              fullWidth
-              label="Content"
-              multiline
-              rows={10}
-              name="content"
-              margin="normal"
-              onChange={handleChange}
-              error={errors.content !== undefined}
-              helperText={errors.content}
-              required
-            /> */}
             <Editor
               editorState={editorState}
               onEditorStateChange={handleEditorChange}
@@ -119,17 +101,14 @@ const PostEditor = () => {
             />
             <ErrorAlert error={serverError} />
             <Button
-              variant="outlined"
-              type="submit"
-              fullWidth
-              disabled={loading}
-              sx={{
-                mt: 2,
-              }}
+              type="primary"
+              htmlType="submit"
+              loading={loading}
+              style={{ marginTop: "1rem", width: "100%" }}
             >
-              {loading ? <>Submitting</> : <>Submit</>}
+              {loading ? "Submitting" : "Submit"}
             </Button>
-          </Box>
+          </form>
         </div>
       </Card>
     </div>

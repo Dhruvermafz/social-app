@@ -5,10 +5,11 @@ import { Input, Button, TextField } from "@mui/material";
 import { PersonOutline, LockOutlined } from "@mui/icons-material";
 import ErrorAlert from "../components/Extras/ErrorAlert";
 import { loginUser } from "../helpers/authHelper";
-import Copyright from "../components/Home/Copyright";
+import Copyright from "../components/Home/Footer";
 import Banner from "../components/Banner";
 import { icon } from "../static";
 import Layout from "../components/Layout/Layout";
+import TransitionOptions from "../components/util/TransitionOptions";
 
 const LoginView = () => {
   const [allowTrial] = useState(true);
@@ -20,6 +21,7 @@ const LoginView = () => {
   });
 
   const [serverError, setServerError] = useState("");
+  const [transitonOption, setTransitionOption] = useState("none");
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -32,9 +34,11 @@ const LoginView = () => {
     const data = await login(formData);
     if (data.error) {
       setServerError(data.error);
+      setTransitionOption("failure");
     } else {
       loginUser(data);
       navigate("/");
+      setTransitionOption("success");
     }
   };
 
@@ -43,6 +47,8 @@ const LoginView = () => {
       <Banner />
       <Layout>
         <div className="portal-login">
+          <TransitionOptions setTransitionOption={setTransitionOption} />
+
           {allowTrial && (
             <div className="portal-notif">
               <h3>Trial Use</h3>

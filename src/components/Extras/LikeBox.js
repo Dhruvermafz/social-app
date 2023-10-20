@@ -1,13 +1,11 @@
-import { IconButton, Stack, Typography, useTheme } from "@mui/material";
 import React, { useState } from "react";
-import { AiFillLike, AiOutlineLike } from "react-icons/ai";
-import { IconContext } from "react-icons/lib";
+import { Button, Space, Typography } from "antd";
+import { LikeOutlined, LikeFilled } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import { isLoggedIn } from "../../helpers/authHelper";
 
 const LikeBox = (props) => {
   const { likeCount, onLike } = props;
-  const theme = useTheme();
   const [liked, setLiked] = useState(props.liked);
 
   const navigate = useNavigate();
@@ -23,18 +21,14 @@ const LikeBox = (props) => {
   };
 
   return (
-    <Stack alignItems="center">
-      <IconButton sx={{ padding: 0.5 }} onClick={handleLike}>
-        {liked ? (
-          <IconContext.Provider value={{ color: theme.palette.primary.main }}>
-            <AiFillLike />
-          </IconContext.Provider>
-        ) : (
-          <AiOutlineLike />
-        )}
-      </IconButton>
+    <Space direction="vertical">
+      <Button
+        type="text"
+        icon={liked ? <LikeFilled /> : <LikeOutlined />}
+        onClick={handleLike}
+      />
       <Typography>{likeCount}</Typography>
-    </Stack>
+    </Space>
   );
 };
 

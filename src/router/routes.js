@@ -16,4 +16,5 @@ export const routes = {
   MESSANGER: "/messenger/",
 
   Error404: "/404/",
+  ABOUT: "/about",
 };

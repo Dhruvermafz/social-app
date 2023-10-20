@@ -1,6 +1,5 @@
-import { Avatar, AvatarGroup, Button, Typography } from "@mui/material";
 import React, { useState } from "react";
-import HorizontalStack from "../util/HorizontalStack";
+import { Button, Typography, Avatar, Space } from "antd";
 import { AiFillLike } from "react-icons/ai";
 import UserLikeModal from "./UserLikeModal";
 
@@ -21,24 +20,26 @@ const UserLikePreview = ({ postId, userLikePreview }) => {
     userLikes && (
       <>
         <Button
-          variant="outlined"
+          type="text"
           size="small"
-          startIcon={<AiFillLike />}
-          color="primary"
+          icon={<AiFillLike />}
           onClick={handleClick}
+          style={{ color: "#1890ff" }}
         >
-          <HorizontalStack>
-            <AvatarGroup>
-              {userLikes &&
-                userLikes.map((userLike) => (
-                  <Avatar
-                    src={`https://robohash.org/${userLike.username}`}
-                    sx={{ backgroundColor: "lightgray", width: 30, height: 30 }}
-                    key={userLike._id}
-                  />
-                ))}
-            </AvatarGroup>
-          </HorizontalStack>
+          <Space size={4}>
+            {userLikes &&
+              userLikes.map((userLike) => (
+                <Avatar
+                  src={`https://robohash.org/${userLike.username}`}
+                  key={userLike._id}
+                  style={{
+                    backgroundColor: "lightgray",
+                    width: "30px",
+                    height: "30px",
+                  }}
+                />
+              ))}
+          </Space>
         </Button>
         {open && (
           <UserLikeModal open={open} setOpen={setOpen} postId={postId} />

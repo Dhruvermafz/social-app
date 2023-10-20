@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { getPosts } from "../../api/posts";
 import { isLoggedIn } from "../../helpers/authHelper";
 import FindUsers from "../Extras/FindUsers";
-import Footer from "./Footer";
+import Footer from "./NavLinks";
 import Loading from "./Loading";
 import PostCard from "../Post/PostCard";
 import TopPosts from "../Post/TopPosts";

@@ -7,7 +7,7 @@ import CommentBrowser from "../components/Comments/CommentBrowser";
 
 import ErrorAlert from "../components/Extras/ErrorAlert";
 import FindUsers from "../components/Extras/FindUsers";
-import Footer from "../components/Home/Footer";
+import Footer from "../components/Home/NavLinks";
 import GoBack from "../components/Extras/GoBack";
 import GridLayout from "../components/Extras/GridLayout";
 import Loading from "../components/Home/Loading";

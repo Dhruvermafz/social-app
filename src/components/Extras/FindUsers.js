@@ -1,20 +1,12 @@
-import {
-  Avatar,
-  Card,
-  Divider,
-  IconButton,
-  Stack,
-  Typography,
-} from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { AiOutlineUser } from "react-icons/ai";
-import { MdRefresh } from "react-icons/md";
+import { Card, Space, Typography, Avatar, Button } from "antd";
+import { ReloadOutlined, UserOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import { getRandomUsers } from "../../api/users";
 import Loading from "../Home/Loading";
-import UserAvatar from "../UserModal/UserAvatar";
-import HorizontalStack from "../util/HorizontalStack";
 import UserEntry from "../UserModal/UserEntry";
+
+const { Text } = Typography;
 
 const FindUsers = () => {
   const [loading, setLoading] = useState(true);
@@ -36,33 +28,29 @@ const FindUsers = () => {
   };
 
   return (
-    <Card>
-      <Stack spacing={2}>
-        <HorizontalStack justifyContent="space-between">
-          <HorizontalStack>
-            <AiOutlineUser />
-            <Typography>Find Others</Typography>
-          </HorizontalStack>
-          <IconButton
-            sx={{ padding: 0 }}
-            disabled={loading}
-            onClick={handleClick}
-          >
-            <MdRefresh />
-          </IconButton>
-        </HorizontalStack>
+    <Card title="Find Others">
+      <Space direction="vertical" style={{ width: "100%" }} size="middle">
+        <Space align="center">
+          <UserOutlined />
+          <Text>Find Others</Text>
+        </Space>
 
-        <Divider />
-
+        <hr />
         {loading ? (
           <Loading />
         ) : (
           users &&
           users.map((user) => (
-            <UserEntry username={user.username} key={user.username} />
+            <Link to={`/${user.username}`} key={user.username}>
+              <Space align="center">
+                {/* <Avatar size={24} src={user.avatar} />
+                <Text strong>{user.username}</Text> */}
+                <UserEntry username={user.username} key={user.username} />
+              </Space>
+            </Link>
           ))
         )}
-      </Stack>
+      </Space>
     </Card>
   );
 };

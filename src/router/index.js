@@ -20,7 +20,8 @@ import MessengerView from "../views/MessengerView";
 import { routes } from "./routes";
 import SettingsView from "../components/Settings";
 import Error404 from "../components/Results/404";
-import Copyright from "../components/Home/Copyright";
+import Copyright from "../components/Home/Footer";
+import AboutPage from "../views/AboutUs";
 function Router() {
   return (
     <BrowserRouter>
@@ -52,6 +53,7 @@ function Router() {
         <Route path={routes.SETTINGS} element={<SettingsView />} />
 
         <Route path={routes.Error404} element={<Error404 />} />
+        <Route path={routes.ABOUT} element={<AboutPage />} />
       </Routes>
       <Copyright />
     </BrowserRouter>

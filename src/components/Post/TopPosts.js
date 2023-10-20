@@ -1,12 +1,13 @@
-import { Card, Stack, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
+import { Card, Typography, Space } from "antd";
 import { getPosts } from "../../api/posts";
 import { isLoggedIn } from "../../helpers/authHelper";
 import Loading from "../Home/Loading";
 import PostCard from "./PostCard";
-import HorizontalStack from "../util/HorizontalStack";
-import "react-icons/md";
-import { MdLeaderboard } from "react-icons/md";
+import BookReviews from "../Books/BookReviews"; // Import the BookReviews component
+import { HeartOutlined } from "@ant-design/icons";
+
+const { Meta } = Card;
 
 const TopPosts = () => {
   const [loading, setLoading] = useState(true);
@@ -27,7 +28,6 @@ const TopPosts = () => {
     }
 
     setPosts(topPosts);
-
     setLoading(false);
   };
 
@@ -36,22 +36,21 @@ const TopPosts = () => {
   }, []);
 
   return (
-    <Stack spacing={2}>
-      <Card>
-        <HorizontalStack>
-          <MdLeaderboard />
-          <Typography>Top Posts</Typography>
-        </HorizontalStack>
+    <Space direction="vertical" style={{ width: "100%" }} size="middle">
+      <Card title="Latest Releases" icon={<HeartOutlined />}>
+        {!loading ? (
+          <div>
+            {/* {posts &&
+              posts.map((post) => (
+                <PostCard preview="secondary" post={post} key={post._id} />
+              ))} */}
+            <BookReviews />
+          </div>
+        ) : (
+          <Loading />
+        )}
       </Card>
-      {!loading ? (
-        posts &&
-        posts.map((post) => (
-          <PostCard preview="secondary" post={post} key={post._id} />
-        ))
-      ) : (
-        <Loading />
-      )}
-    </Stack>
+    </Space>
   );
 };
 

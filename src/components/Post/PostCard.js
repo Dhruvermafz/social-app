@@ -2,15 +2,22 @@ import React, { useState } from "react";
 import {
   Button,
   Card,
-  IconButton,
-  Stack,
+  Popover,
+  Space,
   Typography,
-  useTheme,
   Menu,
-  MenuItem,
-} from "@mui/material";
-import { Box } from "@mui/system";
-import { AiFillCheckCircle, AiFillEdit, AiFillMessage } from "react-icons/ai";
+  Modal,
+  message,
+  Popconfirm,
+} from "antd";
+import {
+  EditOutlined,
+  DeleteOutlined,
+  LikeOutlined,
+  LikeFilled,
+  MessageFilled,
+  MoreOutlined,
+} from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import { deletePost, likePost, unlikePost, updatePost } from "../../api/posts";
 import { isLoggedIn } from "../../helpers/authHelper";
@@ -20,21 +27,16 @@ import PostContentBox from "../Post/PostContentBox";
 import HorizontalStack from "../util/HorizontalStack";
 import ContentUpdateEditor from "../Content/ContentUpdateEditor";
 import Markdown from "../Markdown/Markdown";
-import { MdCancel } from "react-icons/md";
-import { BiTrash } from "react-icons/bi";
-import { BsReplyFill, BsThreeDots } from "react-icons/bs";
 import UserLikePreview from "../UserModal/UserLikePreview";
-
+import { Link } from "react-router-dom";
 const PostCard = (props) => {
   const { preview, removePost } = props;
   const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
+  const history = useNavigate();
   const user = isLoggedIn();
-  const theme = useTheme();
-  const { primary: iconColor, error: errorColor } = theme.palette;
   const [anchorEl, setAnchorEl] = useState(null);
   const [editing, setEditing] = useState(false);
-  const [confirm, setConfirm] = useState(false);
+  const [confirmDelete, setConfirmDelete] = useState(false);
   const [post, setPost] = useState(props.post);
   const [likeCount, setLikeCount] = useState(props.post.likeCount);
 
@@ -53,9 +55,8 @@ const PostCard = (props) => {
 
   const handleDeletePost = async (e) => {
     e.stopPropagation();
-
-    if (!confirm) {
-      setConfirm(true);
+    if (!confirmDelete) {
+      setConfirmDelete(true);
     } else {
       setLoading(true);
       await deletePost(post._id, isLoggedIn());
@@ -63,20 +64,18 @@ const PostCard = (props) => {
       if (preview) {
         removePost(post);
       } else {
-        navigate("/");
+        history.push("/");
       }
     }
   };
 
   const handleEditPost = async (e) => {
     e.stopPropagation();
-
     setEditing(!editing);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const content = e.target.content.value;
     await updatePost(post._id, isLoggedIn(), { content });
     setPost({ ...post, content, edited: true });
@@ -96,25 +95,25 @@ const PostCard = (props) => {
   const isAuthor = user?.username === post?.poster?.username;
 
   return (
-    <Card sx={{ padding: 0 }} className="post-card">
-      <Box className={preview}>
+    <Card className="post-card" style={{ padding: 0 }}>
+      <div className={preview}>
         <HorizontalStack spacing={0} alignItems="initial">
-          <Stack
-            justifyContent="space-between "
-            alignItems="center"
-            spacing={1}
-            sx={{
-              backgroundColor: "grey.100",
-              width: "50px",
-              padding: theme.spacing(1),
-            }}
-          >
-            <LikeBox
-              likeCount={likeCount}
-              liked={post?.liked}
-              onLike={handleLike}
-            />
-          </Stack>
+          {/* <Space
+              justifyContent="space-between "
+              alignItems="center"
+              spacing={1}
+              style={{
+                backgroundColor: "grey.100",
+                width: "50px",
+                padding: "8px",
+              }}
+            >
+              <LikeBox
+                likeCount={likeCount}
+                liked={post?.liked}
+                onLike={handleLike}
+              />
+            </Space> */}
           <PostContentBox clickable={preview} post={post} editing={editing}>
             <HorizontalStack justifyContent="space-between">
               <ContentDetails
@@ -123,70 +122,60 @@ const PostCard = (props) => {
                 edited={post?.edited}
                 preview={preview === "secondary"}
               />
-              <Box>
+              <Space>
                 {user &&
                   (isAuthor || user.isAdmin) &&
                   preview !== "secondary" && (
-                    <HorizontalStack>
-                      <div>
-                        <IconButton
-                          disabled={loading}
-                          size="small"
-                          onClick={handleMenuClick}
-                        >
-                          <BsThreeDots />
-                        </IconButton>
-                        <Menu
-                          anchorEl={anchorEl}
-                          open={Boolean(anchorEl)}
-                          onClose={handleMenuClose}
-                        >
-                          <MenuItem onClick={handleEditPost}>
-                            {editing ? (
-                              <MdCancel color={iconColor.main} />
-                            ) : (
-                              <AiFillEdit color={iconColor.main} />
-                            )}
-                            Edit
-                          </MenuItem>
-                          {/* <IconButton
-                        disabled={loading}
-                        size="small"
-                        
+                    <div>
+                      <Popover
+                        content={
+                          <Menu>
+                            <Menu.Item
+                              icon={
+                                editing ? <EditOutlined /> : <MoreOutlined />
+                              }
+                              onClick={handleEditPost}
+                            >
+                              {editing ? "Cancel Edit" : "Edit"}
+                            </Menu.Item>
+                            <Menu.Item
+                              icon={
+                                confirmDelete ? (
+                                  <LikeFilled />
+                                ) : (
+                                  <DeleteOutlined />
+                                )
+                              }
+                              onClick={handleDeletePost}
+                            >
+                              {confirmDelete ? "Confirm Delete" : "Delete"}
+                            </Menu.Item>
+                          </Menu>
+                        }
+                        trigger="click"
+                        visible={Boolean(anchorEl)}
+                        onVisibleChange={handleMenuClose}
                       >
-                      
-                      </IconButton> */}
-
-                          <MenuItem onClick={handleDeletePost}>
-                            {confirm ? (
-                              <AiFillCheckCircle color={errorColor.main} />
-                            ) : (
-                              <BiTrash color={errorColor.main} />
-                            )}
-                            Delete
-                          </MenuItem>
-                        </Menu>
-                        {/* <IconButton
-                        disabled={loading}
-                        size="small"
-                       
-                      >
-                       
-                      </IconButton> */}
-                      </div>
-                    </HorizontalStack>
+                        <Button type="text" icon={<MoreOutlined />} />
+                      </Popover>
+                    </div>
                   )}
-              </Box>
+              </Space>
             </HorizontalStack>
 
-            <Typography
-              variant="h5"
-              gutterBottom
-              sx={{ overflow: "hidden", mt: 1, maxHeight: 125 }}
-              className="title"
-            >
-              {post?.title}
-            </Typography>
+            <Link to={`/blog/${post._id}`}>
+              <Typography.Title
+                level={5}
+                style={{
+                  marginBottom: "8px",
+                  maxHeight: "125px",
+                  overflow: "hidden",
+                }}
+                className="title"
+              >
+                {post?.title}
+              </Typography.Title>
+            </Link>
 
             {preview !== "secondary" &&
               (editing ? (
@@ -195,36 +184,39 @@ const PostCard = (props) => {
                   originalContent={post?.content}
                 />
               ) : (
-                <Box
-                  maxHeight={maxHeight}
-                  overflow="hidden"
+                <div
+                  style={{ maxHeight: maxHeight, overflow: "hidden" }}
                   className="content"
                 >
                   <Markdown content={post?.content} />
-                </Box>
+                </div>
               ))}
 
-            <HorizontalStack sx={{ mt: 2 }} justifyContent="space-between">
+            <HorizontalStack
+              style={{ marginTop: "16px" }}
+              justifyContent="space-between"
+            >
               <HorizontalStack>
-                <AiFillMessage />
-                <Typography
-                  variant="subtitle2"
-                  color="text.secondary"
-                  sx={{ fontWeight: "bold" }}
-                >
+                <LikeBox
+                  likeCount={likeCount}
+                  liked={post?.liked}
+                  onLike={handleLike}
+                />
+                <MessageFilled />
+                <Typography.Text strong style={{ color: "text.secondary" }}>
                   {post?.commentCount}
-                </Typography>
+                </Typography.Text>
               </HorizontalStack>
-              <Box>
+              <Space>
                 <UserLikePreview
                   postId={post?._id}
                   userLikePreview={post?.userLikePreview}
                 />
-              </Box>
+              </Space>
             </HorizontalStack>
           </PostContentBox>
         </HorizontalStack>
-      </Box>
+      </div>
     </Card>
   );
 };

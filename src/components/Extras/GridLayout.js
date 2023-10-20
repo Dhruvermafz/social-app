@@ -1,18 +1,18 @@
-import { Grid, Stack } from "@mui/material";
 import React from "react";
+import { Row, Col } from "antd";
 
 const GridLayout = (props) => {
   const { left, right } = props;
 
   return (
-    <Grid container spacing={2}>
-      <Grid item xs={12} md={8}>
+    <Row gutter={16}>
+      <Col xs={24} md={16}>
         {left}
-      </Grid>
-      <Grid item md={4} sx={{ display: { xs: "none", md: "block" } }}>
+      </Col>
+      <Col xs={0} md={8}>
         {right}
-      </Grid>
-    </Grid>
+      </Col>
+    </Row>
   );
 };
 

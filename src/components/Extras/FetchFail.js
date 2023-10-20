@@ -1,14 +1,15 @@
-import { Typography } from "@mui/material";
-import { Box } from "@mui/system";
 import React from "react";
+import { Typography, Divider, Row } from "antd";
 
 const FetchFail = () => {
   return (
-    <Box display="flex" justifyContent="center">
-      <Typography color="text.secondary" variant="h6" sx={{ mt: 2 }}>
+    <Row justify="center" style={{ marginTop: "2rem" }}>
+      <Divider />
+      <Typography.Text type="secondary" style={{ fontSize: "1.5rem" }}>
         Something went wrong!
-      </Typography>
-    </Box>
+      </Typography.Text>
+      <Divider />
+    </Row>
   );
 };
 

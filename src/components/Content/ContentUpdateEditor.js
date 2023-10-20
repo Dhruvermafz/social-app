@@ -1,5 +1,5 @@
-import { Box, Button, Stack, TextField } from "@mui/material";
 import React, { useState } from "react";
+import { Form, Input, Button, Space } from "antd";
 
 const ContentUpdateEditor = (props) => {
   const [content, setContent] = useState(props.originalContent);
@@ -9,10 +9,8 @@ const ContentUpdateEditor = (props) => {
     setContent(e.target.value);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const content = e.target.content.value;
+  const handleSubmit = (values) => {
+    const content = values.content;
     let error = null;
 
     if (props.validate) {
@@ -22,33 +20,32 @@ const ContentUpdateEditor = (props) => {
     if (error && error.length !== 0) {
       setError(error);
     } else {
-      props.handleSubmit(e);
+      props.handleSubmit(values);
     }
   };
 
   return (
-    <Box component="form" onSubmit={handleSubmit}>
-      <Stack>
-        <TextField
+    <Form onFinish={handleSubmit} initialValues={{ content }}>
+      <Form.Item
+        name="content"
+        validateStatus={error ? "error" : ""}
+        help={error}
+      >
+        <Input.TextArea
           value={content}
-          fullWidth
-          margin="normal"
-          name="content"
-          sx={{ backgroundColor: "white" }}
+          autoSize={{ minRows: 3, maxRows: 6 }}
+          placeholder="Content"
           onChange={handleChange}
-          error={error.length !== 0}
-          helperText={error}
-          multiline
         />
-        <Button
-          type="submit"
-          variant="outlined"
-          sx={{ backgroundColor: "white", mt: 1 }}
-        >
-          Update
-        </Button>
-      </Stack>
-    </Box>
+      </Form.Item>
+      <Form.Item>
+        <Space>
+          <Button type="primary" htmlType="submit">
+            Update
+          </Button>
+        </Space>
+      </Form.Item>
+    </Form>
   );
 };
 

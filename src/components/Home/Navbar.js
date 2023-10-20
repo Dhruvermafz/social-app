@@ -31,7 +31,7 @@ import HorizontalStack from "../util/HorizontalStack";
 import { RiContrast2Line } from "react-icons/ri";
 import { icon } from "../../static";
 import { routes } from "../../router/routes";
-
+import NavLinks from "./NavLinks";
 const Navbar = () => {
   const navigate = useNavigate();
   const user = isLoggedIn();
@@ -78,7 +78,7 @@ const Navbar = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    navigate(`${routes.SEARCH}/${search}`);
+    navigate(`${routes.SEARCH}?` + new URLSearchParams({ search }));
   };
 
   const handleSearchIcon = (e) => {
@@ -161,7 +161,8 @@ const Navbar = () => {
                     horizontal: "right",
                   }}
                 >
-                  <List
+                  <NavLinks />
+                  {/* <List
                     anchorEl={menu}
                     open={Boolean(menu)}
                     onClose={handleCloseMenu}
@@ -176,7 +177,7 @@ const Navbar = () => {
                     <ListItem button onClick={handleLogout}>
                       <ListItemText primary="Logout" />
                     </ListItem>
-                  </List>
+                  </List> */}
                 </Popover>
                 {/* <Button onClick={handleLogout}>Logout</Button> */}
               </>
