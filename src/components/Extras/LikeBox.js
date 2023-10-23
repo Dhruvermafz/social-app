@@ -21,7 +21,7 @@ const LikeBox = (props) => {
   };
 
   return (
-    <Space direction="vertical">
+    <Space direction="vertical" size={0} style={{ display: "flex", alignItems: "center", justifyContent: "center", }}>
       <Button
         type="text"
         icon={liked ? <LikeFilled /> : <LikeOutlined />}

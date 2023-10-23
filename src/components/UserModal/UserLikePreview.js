@@ -21,12 +21,11 @@ const UserLikePreview = ({ postId, userLikePreview }) => {
       <>
         <Button
           type="text"
-          size="small"
-          icon={<AiFillLike />}
+          icon={<AiFillLike size={20} />}
           onClick={handleClick}
-          style={{ color: "#1890ff" }}
+          style={{ color: "#1890ff", display: "flex", alignItems: "center", justifyContent: "center", }}
         >
-          <Space size={4}>
+          <Space size={4} style={{ display: "flex", justifyContent: "center", }}>
             {userLikes &&
               userLikes.map((userLike) => (
                 <Avatar
@@ -34,8 +33,8 @@ const UserLikePreview = ({ postId, userLikePreview }) => {
                   key={userLike._id}
                   style={{
                     backgroundColor: "lightgray",
-                    width: "30px",
-                    height: "30px",
+                    width: "20px",
+                    height: "20px",
                   }}
                 />
               ))}
