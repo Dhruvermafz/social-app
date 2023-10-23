@@ -17,7 +17,6 @@ const PostContentBox = ({ clickable, post, editing, children }) => {
       onClick={handleClick}
       style={{
         padding: "16px",
-        width: clickable && !editing ? "92%" : "90%",
       }}
     >
       {children}
