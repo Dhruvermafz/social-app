@@ -1,38 +1,27 @@
 import React from "react";
-import { Layout, Typography, List } from "antd";
+import { List, Typography, Layout } from "antd";
+import { Link, useNavigate } from "react-router-dom";
 import {
+  ProfileFilled,
   GithubOutlined,
   InfoCircleOutlined,
   SettingOutlined,
   LockOutlined,
+  LogoutOutlined,
 } from "@ant-design/icons";
-import { Link } from "react-router-dom";
+import { routes } from "../../router/routes";
+import { isLoggedIn, logoutUser } from "../../helpers/authHelper";
 
 const { Item } = List;
 
 const NavLinks = ({ darkmode }) => {
-  const links = [
-    {
-      icon: <GithubOutlined style={{ fontSize: "24px" }} />,
-      text: "GitHub",
-      url: "https://github.com/Dhruvermafz/social-app",
-    },
-    {
-      icon: <InfoCircleOutlined style={{ fontSize: "24px" }} />,
-      text: "About",
-      url: "/about",
-    },
-    {
-      icon: <SettingOutlined style={{ fontSize: "24px" }} />,
-      text: "Settings",
-      url: "/settings",
-    },
-    {
-      icon: <LockOutlined style={{ fontSize: "24px" }} />,
-      text: "Discord",
-      url: "https://discord.gg/n32dAAcCJY",
-    },
-  ];
+  const user = isLoggedIn();
+  const navigate = useNavigate();
+
+  const handleLogout = async (e) => {
+    logoutUser();
+    navigate("/login");
+  };
 
   return (
     <Layout
@@ -43,23 +32,56 @@ const NavLinks = ({ darkmode }) => {
         color: darkmode ? "#c1c2c5" : "black",
       }}
     >
-      <List
-        // grid={{ gutter: 16, xs: 1, sm: 2, md: 4 }}
-        dataSource={links}
-        renderItem={(item) => (
-          <Item>
-            <Link
-              to={item.url}
-              target={item.url.startsWith("http") ? "_blank" : "_self"}
-            >
-              {item.icon}
-              <Typography.Paragraph style={{ fontSize: "16px" }}>
-                {item.text}
-              </Typography.Paragraph>
-            </Link>
-          </Item>
-        )}
-      />
+      <List grid={{ gutter: 16, xs: 1, sm: 2, md: 4 }}>
+        <Item>
+          <Link to={`${routes.PROFILE(user.username)}`}>
+            <ProfileFilled style={{ fontSize: "24px" }} />
+            <Typography.Paragraph style={{ fontSize: "16px" }}>
+              Profile
+            </Typography.Paragraph>
+          </Link>
+        </Item>
+        <Item>
+          <Link to="https://github.com/Dhruvermafz/social-app" target="_blank">
+            <GithubOutlined style={{ fontSize: "24px" }} />
+            <Typography.Paragraph style={{ fontSize: "16px" }}>
+              GitHub
+            </Typography.Paragraph>
+          </Link>
+        </Item>
+        <Item>
+          <Link to="/about">
+            <InfoCircleOutlined style={{ fontSize: "24px" }} />
+            <Typography.Paragraph style={{ fontSize: "16px" }}>
+              About
+            </Typography.Paragraph>
+          </Link>
+        </Item>
+        <Item>
+          <Link to="/settings">
+            <SettingOutlined style={{ fontSize: "24px" }} />
+            <Typography.Paragraph style={{ fontSize: "16px" }}>
+              Settings
+            </Typography.Paragraph>
+          </Link>
+        </Item>
+        <Item>
+          <Link to="https://discord.gg/n32dAAcCJY" target="_blank">
+            <LockOutlined style={{ fontSize: "24px" }} />
+            <Typography.Paragraph style={{ fontSize: "16px" }}>
+              Discord
+            </Typography.Paragraph>
+          </Link>
+        </Item>
+        <Item>
+          <a href="#" onClick={handleLogout}>
+            <LogoutOutlined style={{ fontSize: "24px" }} />
+            <Typography.Paragraph style={{ fontSize: "16px" }}>
+              Logout
+            </Typography.Paragraph>
+          </a>
+        </Item>
+      </List>
     </Layout>
   );
 };

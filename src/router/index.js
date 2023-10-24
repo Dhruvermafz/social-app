@@ -22,6 +22,9 @@ import SettingsView from "../components/Settings";
 import Error404 from "../components/Results/404";
 import Copyright from "../components/Home/Footer";
 import AboutPage from "../views/AboutUs";
+import ForgotPassword from "../views/FogotPassword";
+import PasswordReset from "../views/PasswordReset";
+
 function Router() {
   return (
     <BrowserRouter>
@@ -54,6 +57,8 @@ function Router() {
 
         <Route path={routes.Error404} element={<Error404 />} />
         <Route path={routes.ABOUT} element={<AboutPage />} />
+        <Route path={routes.PASSWORD_RESET} element={<PasswordReset />} />
+        <Route path={routes.FORGOT_PASSWORD} element={<ForgotPassword />} />
       </Routes>
       <Copyright />
     </BrowserRouter>

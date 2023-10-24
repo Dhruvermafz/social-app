@@ -30,10 +30,10 @@ const FindUsers = () => {
   return (
     <Card title="Find Others">
       <Space direction="vertical" style={{ width: "100%" }} size="middle">
-        <Space align="center">
+        {/* <Space align="center">
           <UserOutlined />
-          <Text>Find Others</Text>
-        </Space>
+        
+        </Space> */}
 
         <hr />
         {loading ? (

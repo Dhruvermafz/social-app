@@ -17,4 +17,6 @@ export const routes = {
 
   Error404: "/404/",
   ABOUT: "/about",
+  PASSWORD_RESET: "/password-reset",
+  FORGOT_PASSWORD: "/forgotpassword/:id/:token",
 };

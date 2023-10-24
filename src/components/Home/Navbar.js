@@ -58,11 +58,6 @@ const Navbar = () => {
     setWindowWidth(width);
   };
 
-  const handleLogout = async (e) => {
-    logoutUser();
-    navigate("/login");
-  };
-
   const handleAvatarClick = (e) => {
     setAvatarMenuAnchor(e.currentTarget);
   };
@@ -162,22 +157,6 @@ const Navbar = () => {
                   }}
                 >
                   <NavLinks />
-                  {/* <List
-                    anchorEl={menu}
-                    open={Boolean(menu)}
-                    onClose={handleCloseMenu}
-                  >
-                    <ListItem
-                      button
-                      component={Link}
-                      to={`${routes.PROFILE(user.username)}`}
-                    >
-                      <ListItemText primary="Profile" />
-                    </ListItem>
-                    <ListItem button onClick={handleLogout}>
-                      <ListItemText primary="Logout" />
-                    </ListItem>
-                  </List> */}
                 </Popover>
                 {/* <Button onClick={handleLogout}>Logout</Button> */}
               </>

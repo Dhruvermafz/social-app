@@ -103,6 +103,9 @@ const LoginView = () => {
             <Link to="/signup" className="portal-link">
               Create an account?
             </Link>
+            <Link to="/forgotpassword" className="portal-link">
+              Forgot Password?
+            </Link>
           </div>
         </div>
       </Layout>
