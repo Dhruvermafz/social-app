@@ -47,8 +47,6 @@ const LoginView = () => {
       <Banner />
       <Layout>
         <div className="portal-login">
-          <TransitionOptions setTransitionOption={setTransitionOption} />
-
           {allowTrial && (
             <div className="portal-notif">
               <h3>Trial Use</h3>
