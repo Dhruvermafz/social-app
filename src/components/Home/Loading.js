@@ -1,14 +1,14 @@
-import { CircularProgress, Stack, Typography } from "@mui/material";
 import React from "react";
+import { Spin, Space, Typography } from "antd";
 
 const Loading = ({ label }) => {
   return (
-    <Stack alignItems="center">
-      <CircularProgress size={50} sx={{ my: 1 }} />
-      <Typography color="text.secondary" sx={{ mb: 3 }}>
+    <Space direction="vertical" align="center">
+      <Spin size="large" style={{ margin: "16px 0" }} />
+      <Typography.Text type="secondary" style={{ marginBottom: "24px" }}>
         {label || "Loading"}
-      </Typography>
-    </Stack>
+      </Typography.Text>
+    </Space>
   );
 };
 

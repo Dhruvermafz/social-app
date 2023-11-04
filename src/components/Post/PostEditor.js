@@ -80,7 +80,7 @@ const PostEditor = () => {
             </a>
           </Typography>
 
-          <SearchBooks onBookSelect={handleBookSelect} />
+          {/* <SearchBooks onBookSelect={handleBookSelect} /> */}
 
           <form onSubmit={handleSubmit}>
             <Input

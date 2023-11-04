@@ -42,12 +42,12 @@ const NavLinks = ({ darkmode }) => {
           </Link>
         </Item>
         <Item>
-          <Link to="https://github.com/Dhruvermafz/social-app" target="_blank">
+          <a href="https://github.com/Dhruvermafz/social-app" target="_blank">
             <GithubOutlined style={{ fontSize: "24px" }} />
             <Typography.Paragraph style={{ fontSize: "16px" }}>
               GitHub
             </Typography.Paragraph>
-          </Link>
+          </a>
         </Item>
         <Item>
           <Link to="/about">
@@ -66,12 +66,12 @@ const NavLinks = ({ darkmode }) => {
           </Link>
         </Item>
         <Item>
-          <Link to="https://discord.gg/n32dAAcCJY" target="_blank">
+          <a href="https://discord.gg/n32dAAcCJY" target="_blank">
             <LockOutlined style={{ fontSize: "24px" }} />
             <Typography.Paragraph style={{ fontSize: "16px" }}>
               Discord
             </Typography.Paragraph>
-          </Link>
+          </a>
         </Item>
         <Item>
           <a href="#" onClick={handleLogout}>
