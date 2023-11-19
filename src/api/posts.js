@@ -1,5 +1,16 @@
 import { BASE_URL } from "../config";
+import { GLOBALTYPES } from "./globalTypes";
 
+export const POST_TYPES = {
+  CREATE_POST: "CREATE_POST",
+  LOADING_POST: "LOADING_POST",
+  GET_POSTS: "GET_POSTS",
+  UPDATE_POST: "UPDATE_POST",
+  GET_POST: "GET_POST",
+  DELETE_POST: "DELETE_POST",
+  REPORT_POST: "REPORT_POST",
+  SAVE_POST: "SAVE_POST",
+};
 const getUserLikedPosts = async (likerId, token, query) => {
   try {
     const res = await fetch(
@@ -214,6 +225,112 @@ const unlikePost = async (postId, user) => {
   }
 };
 
+const reportPost = async (postId, user, dispatch) => {
+  const reportExist = postId.reports.find((report) => report === user.user._id);
+
+  if (reportExist) {
+    return dispatch({
+      type: GLOBALTYPES.ALERT,
+      payload: { error: "You have already reported this post." },
+    });
+  }
+
+  try {
+    const res = await fetch(BASE_URL + `api/posts/${postId._id}/report`, {
+      method: "PATCH",
+      headers: {
+        "x-access-token": user.token,
+      },
+    });
+
+    const responseData = await res.json();
+
+    dispatch({
+      type: GLOBALTYPES.ALERT,
+      payload: { success: responseData.msg },
+    });
+
+    return responseData;
+  } catch (err) {
+    const errorMessage = err.response ? err.response.data.msg : err.message;
+
+    dispatch({
+      type: GLOBALTYPES.ALERT,
+      payload: { error: errorMessage },
+    });
+
+    console.error(err);
+  }
+};
+
+const savePost = async (postId, user, dispatch) => {
+  const newUser = { ...user.user, saved: [...user.user.saved, postId._id] };
+
+  dispatch({ type: GLOBALTYPES.AUTH, payload: { ...user, user: newUser } });
+
+  try {
+    const res = await fetch(BASE_URL + `api/posts/savePost/` + postId, {
+      method: "PATCH",
+      headers: {
+        "x-access-token": user.token,
+      },
+    });
+
+    const responseData = await res.json();
+
+    dispatch({
+      type: GLOBALTYPES.ALERT,
+      payload: { success: responseData.msg },
+    });
+
+    return responseData;
+  } catch (err) {
+    const errorMessage = err.response ? err.response.data.msg : err.message;
+
+    dispatch({
+      type: GLOBALTYPES.ALERT,
+      payload: { error: errorMessage },
+    });
+
+    console.error(err);
+  }
+};
+
+const unSavePost = async (postId, user, dispatch) => {
+  const newUser = {
+    ...user.user,
+    saved: user.user.saved.filter((id) => id !== postId._id),
+  };
+
+  dispatch({ type: GLOBALTYPES.AUTH, payload: { ...user, user: newUser } });
+
+  try {
+    const res = await fetch(BASE_URL + `api/posts/unSavePost/` + postId, {
+      method: "PATCH",
+      headers: {
+        "x-access-token": user.token,
+      },
+    });
+
+    const responseData = await res.json();
+
+    dispatch({
+      type: GLOBALTYPES.ALERT,
+      payload: { success: responseData.msg },
+    });
+
+    return responseData;
+  } catch (err) {
+    const errorMessage = err.response ? err.response.data.msg : err.message;
+
+    dispatch({
+      type: GLOBALTYPES.ALERT,
+      payload: { error: errorMessage },
+    });
+
+    console.error(err);
+  }
+};
 export {
   getPost,
   createPost,
@@ -229,4 +346,7 @@ export {
   likePost,
   unlikePost,
   getUserLikes,
+  reportPost,
+  savePost,
+  unSavePost,
 };

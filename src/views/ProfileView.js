@@ -4,7 +4,6 @@ import { useNavigate, useParams, useLocation } from "react-router-dom";
 import { getUser, updateUser } from "../api/users";
 import { isLoggedIn } from "../helpers/authHelper";
 import CommentBrowser from "../components/Comments/CommentBrowser";
-
 import ErrorAlert from "../components/Extras/ErrorAlert";
 import FindUsers from "../components/Extras/FindUsers";
 import Footer from "../components/Home/NavLinks";
