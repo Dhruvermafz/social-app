@@ -24,7 +24,7 @@ import Copyright from "../components/Home/Footer";
 import AboutPage from "../views/AboutUs";
 import ForgotPassword from "../views/FogotPassword";
 import PasswordReset from "../views/PasswordReset";
-import About from "../views/About";
+
 function Router() {
   return (
     <BrowserRouter>
@@ -59,7 +59,7 @@ function Router() {
         <Route path={routes.ABOUT} element={<AboutPage />} />
         <Route path={routes.PASSWORD_RESET} element={<PasswordReset />} />
         <Route path={routes.FORGOT_PASSWORD} element={<ForgotPassword />} />
-        <Route path="/abouts" element={<About />} />
+      
       </Routes>
       <Copyright />
     </BrowserRouter>
