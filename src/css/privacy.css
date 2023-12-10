@@ -1,0 +1,48 @@
+/*--- Privacy and policy page ---*/
+.tab-content.central-meta {
+    padding: 30px;
+}
+.privacy .d-flex.flex-row.mt-2 {
+    margin-top: 0;
+}
+.privacy {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+}
+.policy.nav.nav-tabs {
+    width: 300px;
+}
+.policy .nav-link {
+    position: relative;
+}
+.policy .nav-link.active::before {
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 3px;
+    z-index: 2;
+}
+
+.theme-layout {
+    float: left;
+    position: relative;
+    width: 100%;
+}
+
+.theme-layout.boxed {
+    background: none repeat scroll 0 0 #FFFFFF;
+    float: none;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    width: 1230px;
+    -webkit-box-shadow: 0 0 6px #747474;
+    -moz-box-shadow: 0 0 6px #747474;
+    -ms-box-shadow: 0 0 6px #747474;
+    -o-box-shadow: 0 0 6px #747474;
+    box-shadow: 0 0 6px #747474;
+}

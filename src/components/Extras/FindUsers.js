@@ -28,30 +28,32 @@ const FindUsers = () => {
   };
 
   return (
-    <Card title="Find Others">
-      <Space direction="vertical" style={{ width: "100%" }} size="middle">
-        {/* <Space align="center">
+    <div className="widget">
+      <Card title="Find Others" className="widget-title">
+        <Space direction="vertical" style={{ width: "100%" }} size="middle">
+          {/* <Space align="center">
           <UserOutlined />
         
         </Space> */}
 
-        <hr />
-        {loading ? (
-          <Loading />
-        ) : (
-          users &&
-          users.map((user) => (
-            <Link to={`/${user.username}`} key={user.username}>
-              <Space align="center">
-                {/* <Avatar size={24} src={user.avatar} />
+          <hr />
+          {loading ? (
+            <Loading />
+          ) : (
+            users &&
+            users.map((user) => (
+              <Link to={`/${user.username}`} key={user.username}>
+                <Space align="center">
+                  {/* <Avatar size={24} src={user.avatar} />
                 <Text strong>{user.username}</Text> */}
-                <UserEntry username={user.username} key={user.username} />
-              </Space>
-            </Link>
-          ))
-        )}
-      </Space>
-    </Card>
+                  <UserEntry username={user.username} key={user.username} />
+                </Space>
+              </Link>
+            ))
+          )}
+        </Space>
+      </Card>
+    </div>
   );
 };
 

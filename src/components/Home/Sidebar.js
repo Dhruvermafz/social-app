@@ -8,12 +8,14 @@ import Footer from "./NavLinks";
 import Loading from "./Loading";
 import PostCard from "../Post/PostCard";
 import TopPosts from "../Post/TopPosts";
+import StickyWidget from "../Extras/StickyWidget";
 
 const Sidebar = () => {
   return (
     <Stack spacing={2}>
       <TopPosts />
       <FindUsers />
+      <StickyWidget />
     </Stack>
   );
 };

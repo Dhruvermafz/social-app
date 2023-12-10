@@ -1,0 +1,18 @@
+/*--- bottombar ---*/
+
+.bottombar {
+    background: #e6ebef;
+    float: left;
+    padding: 20px 0;
+    width: 100%;
+}
+
+.copyright {
+    float: left;
+    font-size: 13px;
+    font-weight: 300;
+}
+
+.bottombar i {
+    float: right;
+}

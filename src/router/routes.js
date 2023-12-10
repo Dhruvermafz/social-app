@@ -16,7 +16,11 @@ export const routes = {
   MESSANGER: "/messenger/",
 
   Error404: "/404/",
+  Error500: "/500",
   ABOUT: "/about",
   PASSWORD_RESET: "/password-reset",
   FORGOT_PASSWORD: "/forgotpassword/:id/:token",
+
+  ADCENTER: "/adcenter",
+  PRIVACY: "/privacy",
 };

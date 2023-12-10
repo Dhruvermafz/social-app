@@ -24,6 +24,9 @@ import Copyright from "../components/Home/Footer";
 import AboutPage from "../views/AboutUs";
 import ForgotPassword from "../views/FogotPassword";
 import PasswordReset from "../views/PasswordReset";
+import AdCenter from "../components/adcenter/AdCenter";
+import Error500 from "../views/Error500";
+import PrivacyView from "../views/PrivacyView";
 
 function Router() {
   return (
@@ -49,6 +52,24 @@ function Router() {
           }
         />
 
+        <Route
+          path={routes.ADCENTER}
+          element={
+            <PrivateRoute>
+              <AdCenter />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path={routes.PRIVACY}
+          element={
+            <PrivateRoute>
+              <PrivacyView />
+            </PrivateRoute>
+          }
+        />
+
         <Route path={routes.SEARCH} element={<SearchView />} />
         <Route path={routes.PROFILE(":id")} element={<ProfileView />} />
         <Route path={routes.LOGIN} element={<LoginView />} />
@@ -56,10 +77,10 @@ function Router() {
         <Route path={routes.SETTINGS} element={<SettingsView />} />
 
         <Route path={routes.Error404} element={<Error404 />} />
+        <Route path={routes.Error500} element={<Error500 />} />
         <Route path={routes.ABOUT} element={<AboutPage />} />
         <Route path={routes.PASSWORD_RESET} element={<PasswordReset />} />
         <Route path={routes.FORGOT_PASSWORD} element={<ForgotPassword />} />
-      
       </Routes>
       <Copyright />
     </BrowserRouter>
