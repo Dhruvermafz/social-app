@@ -23,4 +23,6 @@ export const routes = {
 
   ADCENTER: "/adcenter",
   PRIVACY: "/privacy",
+
+  ADMIN: "/admin",
 };

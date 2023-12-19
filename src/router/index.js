@@ -27,7 +27,7 @@ import PasswordReset from "../views/PasswordReset";
 import AdCenter from "../components/adcenter/AdCenter";
 import Error500 from "../views/Error500";
 import PrivacyView from "../views/PrivacyView";
-
+import AdminDashboard from "../components/admin/AdminDashboard"
 function Router() {
   return (
     <BrowserRouter>
@@ -43,6 +43,7 @@ function Router() {
             </PrivateRoute>
           }
         />
+        <Route path={routes.ADMIN} element={<adminDashboard />} />
         <Route
           path={routes.MESSANGER}
           element={

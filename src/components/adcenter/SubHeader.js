@@ -1,5 +1,6 @@
 import React from "react";
 import baner from "../../static/img/resources/baner-forum.png";
+import "../../css/paheheader.css";
 const SubHeader = () => {
   return (
     <section>

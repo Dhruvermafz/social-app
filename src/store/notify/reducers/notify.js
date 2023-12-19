@@ -1,5 +1,5 @@
 import { NOTIFY_TYPES } from "../actions/notify";
-import { EditData } from "../actions/globalTypes";
+import { EditData } from "../../../api/globalTypes";
 
 const initialState = {
   loading: false,

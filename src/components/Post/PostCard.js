@@ -10,6 +10,8 @@ import {
   message,
   Popconfirm,
 } from "antd";
+import DeleteBlogView from "../../views/DeleteBlogView"
+import { MdCancel } from "react-icons/md";
 import {
   EditOutlined,
   DeleteOutlined,
@@ -17,7 +19,7 @@ import {
   LikeFilled,
   MoreOutlined,
   MessageOutlined,
-  MessageFilled
+  MessageFilled,
 } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import { deletePost, likePost, unlikePost, updatePost } from "../../api/posts";
@@ -36,6 +38,7 @@ const PostCard = (props) => {
   const [loading, setLoading] = useState(false);
   const history = useNavigate();
   const user = isLoggedIn();
+
   const [anchorEl, setAnchorEl] = useState(null);
   const [editing, setEditing] = useState(false);
   const [confirmDelete, setConfirmDelete] = useState(false);
@@ -46,14 +49,6 @@ const PostCard = (props) => {
   if (preview === "primary") {
     maxHeight = 250;
   }
-
-  const handleMenuClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleMenuClose = () => {
-    setAnchorEl(null);
-  };
 
   const handleDeletePost = async (e) => {
     e.stopPropagation();
@@ -97,7 +92,7 @@ const PostCard = (props) => {
   const isAuthor = user?.username === post?.poster?.username;
 
   return (
-    <PostContentBox clickable={preview} post={post} editing={editing} >
+    <PostContentBox clickable={preview} post={post} editing={editing}>
       <HorizontalStack justifyContent="space-between">
         <ContentDetails
           username={post?.poster?.username}
@@ -106,45 +101,35 @@ const PostCard = (props) => {
           preview={preview === "secondary"}
         />
         <Space>
-          {user &&
-            (isAuthor || user.isAdmin) &&
-            preview !== "secondary" && (
-              <div>
-                <Popover
-                  placement="bottomRight"
-                  content={
-                    <Menu>
-                      <Menu.Item
-                        icon={
-                          editing ? <EditOutlined /> : <MoreOutlined />
-                        }
-                        onClick={handleEditPost}
-                      >
-                        {editing ? "Cancel Edit" : "Edit"}
-                      </Menu.Item>
-                      <Menu.Item
-                        icon={
-                          confirmDelete ? (
-                            <LikeFilled />
-                          ) : (
-                            <DeleteOutlined />
-                          )
-                        }
-                        onClick={handleDeletePost}
-                        style={{
-                          color: "red",
-                        }}
-                      >
-                        {confirmDelete ? "Confirm Delete" : "Delete"}
-                      </Menu.Item>
-                    </Menu>
-                  }
-                  trigger={'click'}
-                >
-                  <Button type="text" icon={<MoreOutlined />} />
-                </Popover>
-              </div>
-            )}
+          {user && (isAuthor || user.isAdmin) && preview !== "secondary" && (
+            <div>
+              <Popover
+                placement="bottomRight"
+                content={
+                  <Menu>
+                    <Menu.Item
+                      icon={editing ? <EditOutlined /> : <MoreOutlined />}
+                      onClick={handleEditPost}
+                    >
+                      {editing ? "Cancel Edit" : "Edit"}
+                    </Menu.Item>
+                    <Menu.Item
+                      icon={confirmDelete ? <LikeFilled /> : <DeleteOutlined />}
+                      onClick={handleDeletePost}
+                      style={{
+                        color: "red",
+                      }}
+                    >
+                      {confirmDelete ? "Confirm Delete" : "Delete"}
+                    </Menu.Item>
+                  </Menu>
+                }
+                trigger={"click"}
+              >
+                <Button type="text" icon={<MoreOutlined />} />
+              </Popover>
+            </div>
+          )}
         </Space>
       </HorizontalStack>
 
@@ -187,7 +172,15 @@ const PostCard = (props) => {
             liked={post?.liked}
             onLike={handleLike}
           />
-          <Space size={0} direction="vertical" style={{ display: "flex", alignItems: "center", justifyContent: "center", }}>
+          <Space
+            size={0}
+            direction="vertical"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
             <Button
               type="text"
               icon={<MessageOutlined />}

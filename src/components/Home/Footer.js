@@ -1,7 +1,7 @@
 import React from "react";
 import { Typography } from "antd";
 import { Link } from "react-router-dom";
-import { itsablog } from "../../static/img/icon.png";
+import itsablog from "../../static/img/icon.png";
 import "../../css/footer.css";
 const getCurrentYear = () => {
   const currentYear = new Date().getFullYear();
@@ -19,9 +19,9 @@ const Footer = () => {
             <span class="copyright">
               © ItsABlog {currentYear}. All rights reserved.
             </span>
-            <i>
+            {/* <i>
               <img src={itsablog} alt="" />
-            </i>
+            </i> */}
             <Typography.Text type="secondary">
               <Link to="/terms">Terms of Use</Link> |{" "}
               <Link to="/privacy">Privacy Policy</Link> |{" "}
