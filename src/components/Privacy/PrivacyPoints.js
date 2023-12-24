@@ -2,472 +2,186 @@ import React from "react";
 
 const PrivacyPoints = () => {
   return (
-    <section>
-      <div class="gap gray-bg">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="privacy">
-                <div class="d-flex flex-row mt-2">
-                  <ul class="policy nav nav-tabs nav-tabs--vertical nav-tabs--left">
-                    <li class="nav-item">
-                      <a
-                        href="#terms"
-                        class="nav-link active"
-                        data-toggle="tab"
-                      >
-                        Terms Of Services
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="#agreement" class="nav-link" data-toggle="tab">
-                        User Agreement
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="#privecy" class="nav-link" data-toggle="tab">
-                        Privacy Policy
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="#p-center" class="nav-link" data-toggle="tab">
-                        Privacy Center
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="#cookie" class="nav-link" data-toggle="tab">
-                        Cookie Policy
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="#instr" class="nav-link" data-toggle="tab">
-                        Instructions
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="#api" class="nav-link" data-toggle="tab">
-                        API Terms Of Use
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="#security" class="nav-link" data-toggle="tab">
-                        Data Security & Risk
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="#apps" class="nav-link" data-toggle="tab">
-                        Apps Policy
-                      </a>
-                    </li>
-                  </ul>
-                  <div class="tab-content central-meta">
-                    <div class="tab-pane fade show active" id="terms">
-                      <div class="privacy-meta">
-                        <div class="set-title">
-                          <h5>Terms Policy</h5>
-                          <span>
-                            Select push and email notifications you'd like to
-                            receive.
-                          </span>
-                        </div>
-                        <p>
-                          These cookies allow the Site to remember the choices
-                          you make (such as your username, language or the
-                          region you are in). For example, the Site uses
-                          functionality cookies to remember your language
-                          preference. These cookies can also be used to remember
-                          changes you have made to text size, font, and other
-                          parts of pages that you can customize. They can also
-                          be used to provide services you have requested, such
-                          as watching a video or commenting on a blog. The
-                          information these cookies collect may be anonymous and
-                          cannot track your browsing activity on other websites.
-                        </p>
-                        <h6>Cookies Flash</h6>
-                        <p>
-                          We may, in certain circumstances, use Adobe Flash
-                          Player to deliver special content, such as video clips
-                          or animation. To improve your user experience, Local
-                          Shared Objects (commonly known as "Flash cookies") are
-                          used to provide features such as remembering your
-                          settings and preferences. Flash cookies are stored on
-                          your device, but are managed through a different
-                          interface than that provided by your web browser. This
-                          means that it is not possible to manage Flash cookies
-                          through your browser in the same way as you normally
-                          would with cookies. Instead, you can access your Flash
-                          management tools from the Adobe website in
-                          http://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager.html.
-                        </p>
-
-                        <h6>MEASURED CONTENT COOKIES</h6>
-                        <p>
-                          Tailor-made content cookies help the Site provide
-                          enhanced features and display content in a way that is
-                          relevant to you. These cookies help the Site determine
-                          what information to show you based on how you have
-                          used the Site previously. These cookies do not track
-                          your browsing activity on other websites.
-                        </p>
-                        <h6>TARGET COOKIES</h6>
-
-                        <p>
-                          These cookies are used to deliver advertisements that
-                          are more relevant to you and your interests. They are
-                          also used to limit the number of times you see an ad,
-                          as well as to help measure the effectiveness of an ad
-                          campaign. They remember that you have visited a
-                          website and this information can be shared with other
-                          organizations, such as advertisers. This means that
-                          after you have visited the Site, you may see some
-                          advertisements about our services on other parts of
-                          the Internet.
-                        </p>
-                        <h6>
-                          How long will cookies remain on my navigation device?
-                        </h6>
-
-                        <p>
-                          The length of time a cookie will remain on your
-                          navigation device depends on whether it is a
-                          "persistent" cookie or "session" cookie. Session
-                          cookies will only remain on your device until you stop
-                          browsing. Persistent cookies remain on your navigation
-                          device until they expire or are deleted.
-                        </p>
-                        <h6>FIRST AND THIRD COOKIES</h6>
-                        <p>
-                          First-party cookies are cookies that belong to us,
-                          while third-party cookies are cookies that are placed
-                          by another party or
-                        </p>
-                        <p class="p-info">
-                          <a href="#">Contact Us</a> for more informations and
-                          security
-                        </p>
-                      </div>
-                    </div>
-                    <div class="tab-pane fade" id="agreement">
-                      <div class="privacy-meta">
-                        <div class="set-title">
-                          <h5>User Agreement</h5>
-                          <span>
-                            Select push and email notifications you'd like to
-                            receive.
-                          </span>
-                        </div>
-                        <p>
-                          PLEASE READ THE TERMS OF SERVICE CAREFULLY WHEN YOU
-                          CONTAIN IMPORTANT INFORMATION ABOUT YOUR RIGHTS,
-                          REMEDIES AND LEGAL OBLIGATIONS. THESE INCLUDE SEVERAL
-                          LIMITATIONS AND EXCLUSIONS AND A BINDING ARBITRATION
-                          AGREEMENT AND A CLASS ACTION WAIVER.
-                        </p>
-                        <p>
-                          We may, in certain circumstances, use Adobe Flash
-                          Player to deliver special content, such as video clips
-                          or animation. To improve your user experience, Local
-                          Shared Objects (commonly known as "Flash cookies") are
-                          used to provide features such as remembering your
-                          settings and preferences. Flash cookies are stored on
-                          your device, but are managed through a different
-                          interface than that provided by your web browser. This
-                          means that it is not possible to manage Flash cookies
-                          through your browser in the same way as you normally
-                          would with cookies. Instead, you can access your Flash
-                          management tools from the Adobe website in
-                          http://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager.html.
-                        </p>
-                        <p class="p-info">
-                          <a href="#">Contact Us</a> for more informations and
-                          security
-                        </p>
-                      </div>
-                    </div>
-                    <div class="tab-pane fade" id="privecy" role="tabpanel">
-                      <div class="set-title">
-                        <h5>Privacy & Policy</h5>
-                        <span>
-                          Select push and email notifications you'd like to
-                          receive.
-                        </span>
-                      </div>
-                      <div class="privacy-meta">
-                        <p>
-                          Pitnik provides this Privacy Policy to let you know
-                          our policies and procedures regarding the collection,
-                          use and disclosure of information through www.abc.com
-                          (the "Site") and any other website, features,
-                          applications, widgets or online services that are
-                          owned or controlled by Pitnik and that post a link to
-                          this Privacy Policy (along with the Site, the
-                          "Service"), as well as any information that Pitnik
-                          collects offline at related to the Service. It also
-                          describes the options available to you regarding your
-                          use, your access, and how to update and correct your
-                          personal information. This Privacy Policy incorporates
-                          by reference the Pitnik Global Data Processing
-                          Agreement. Please note that we combine the information
-                          we collect from you from the Site, through the Service
-                          in general, or offline.
-                        </p>
-                        <p class="p-info">
-                          <a href="#">Contact Us</a> for more informations and
-                          security
-                        </p>
-                      </div>
-                    </div>
-                    <div class="tab-pane fade" id="p-center" role="tabpanel">
-                      <div class="set-title">
-                        <h5>Privacy Center</h5>
-                        <span>
-                          Set your login preference, help us personalize your
-                          experience and make big account change here.
-                        </span>
-                      </div>
-                      <div class="privacy-meta">
-                        <p>
-                          Pitnik's Privacy and Legal security and information
-                          teams have carefully analyzed applicable privacy laws
-                          and regulations and taken steps to ensure that Pitnik
-                          meets your requirements. We value the privacy of our
-                          users and their rights to control their personal data.
-                          Regardless of where you call home, you can close your
-                          account or request the deletion of all personal
-                          information we hold about you at any time. However, we
-                          will only follow the requirements described by the
-                          GDPR and CCPA for those living in the EEA and
-                          California, respectively. If you live elsewhere, we
-                          will be happy to consider your request to delete your
-                          data.
-                        </p>
-                        <p class="p-info">
-                          <a href="#">Contact Us</a> for more informations and
-                          security
-                        </p>
-                      </div>
-                    </div>
-                    <div class="tab-pane fade" id="cookie" role="tabpanel">
-                      <div class="privacy-meta">
-                        <div class="set-title">
-                          <h5>Cookies Policy</h5>
-                          <span>
-                            Select push and email notifications you'd like to
-                            receive.
-                          </span>
-                        </div>
-                        <h6>Cookies Flash</h6>
-                        <p>
-                          We may, in certain circumstances, use Adobe Flash
-                          Player to deliver special content, such as video clips
-                          or animation. To improve your user experience, Local
-                          Shared Objects (commonly known as "Flash cookies") are
-                          used to provide features such as remembering your
-                          settings and preferences. Flash cookies are stored on
-                          your device, but are managed through a different
-                          interface than that provided by your web browser. This
-                          means that it is not possible to manage Flash cookies
-                          through your browser in the same way as you normally
-                          would with cookies. Instead, you can access your Flash
-                          management tools from the Adobe website in
-                          http://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager.html.
-                        </p>
-
-                        <h6>MEASURED CONTENT COOKIES</h6>
-                        <p>
-                          Tailor-made content cookies help the Site provide
-                          enhanced features and display content in a way that is
-                          relevant to you. These cookies help the Site determine
-                          what information to show you based on how you have
-                          used the Site previously. These cookies do not track
-                          your browsing activity on other websites.
-                        </p>
-                        <h6>TARGET COOKIES</h6>
-
-                        <p>
-                          These cookies are used to deliver advertisements that
-                          are more relevant to you and your interests. They are
-                          also used to limit the number of times you see an ad,
-                          as well as to help measure the effectiveness of an ad
-                          campaign. They remember that you have visited a
-                          website and this information can be shared with other
-                          organizations, such as advertisers. This means that
-                          after you have visited the Site, you may see some
-                          advertisements about our services on other parts of
-                          the Internet.
-                        </p>
-                        <h6>
-                          How long will cookies remain on my navigation device?
-                        </h6>
-
-                        <p>
-                          The length of time a cookie will remain on your
-                          navigation device depends on whether it is a
-                          "persistent" cookie or "session" cookie. Session
-                          cookies will only remain on your device until you stop
-                          browsing. Persistent cookies remain on your navigation
-                          device until they expire or are deleted.
-                        </p>
-                        <h6>FIRST AND THIRD COOKIES</h6>
-                        <p>
-                          First-party cookies are cookies that belong to us,
-                          while third-party cookies are cookies that are placed
-                          by another party or
-                        </p>
-                        <p class="p-info">
-                          <a href="#">Contact Us</a> for more informations and
-                          security
-                        </p>
-                      </div>
-                    </div>
-                    <div class="tab-pane fade" id="instr" role="tabpanel">
-                      <div class="set-title">
-                        <h5>Instructions</h5>
-                        <span>
-                          Deceide whether your profile will be hidden from
-                          search engine and what kind of data you want to use to
-                          imporve the recommendation and ads you see{" "}
-                          <a href="#" title="">
-                            Learn more
-                          </a>
-                        </span>
-                      </div>
-                      <p class="p-info">
-                        <a href="manage-page.html">Click here</a> to go widget
-                        and page setting area
-                      </p>
-                    </div>
-                    <div class="tab-pane fade" id="api" role="tabpanel">
-                      <div class="set-title">
-                        <h5>Privacy & data</h5>
-                        <span>
-                          Deceide whether your profile will be hidden from
-                          search engine and what kind of data you want to use to
-                          imporve the recommendation and ads you see{" "}
-                          <a href="#" title="">
-                            Learn more
-                          </a>
-                        </span>
-                      </div>
-                      <div class="onoff-options ">
-                        <form method="post">
-                          <div class="setting-row">
-                            <span>Search Privacy</span>
-                            <p>
-                              Hide your profile from search engine (Ex.google){" "}
-                              <a href="#" title="">
-                                Learn more
-                              </a>
-                            </p>
-                            <input type="checkbox" id="switch0001" />
-                            <label
-                              for="switch0001"
-                              data-on-label="ON"
-                              data-off-label="OFF"
-                            ></label>
-                          </div>
-                          <div class="set-title">
-                            <h5>Personalization</h5>
-                          </div>
-                          <div class="setting-row">
-                            <span>Search Privacy</span>
-                            <p>
-                              use sites you visit to improve which
-                              recommendation and ads you see.{" "}
-                              <a href="#" title="">
-                                Learn more
-                              </a>
-                            </p>
-                            <input type="checkbox" id="switch0002" />
-                            <label
-                              for="switch0002"
-                              data-on-label="ON"
-                              data-off-label="OFF"
-                            ></label>
-                          </div>
-                          <div class="setting-row">
-                            <span>Search Privacy</span>
-                            <p>
-                              use information from our partners to improve which
-                              ads you see
-                              <a href="#" title="">
-                                Learn more
-                              </a>
-                            </p>
-                            <input type="checkbox" id="switch0003" />
-                            <label
-                              for="switch0003"
-                              data-on-label="ON"
-                              data-off-label="OFF"
-                            ></label>
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                    <div class="tab-pane fade" id="security" role="tabpanel">
-                      <div class="set-title">
-                        <h5>Security Setting</h5>
-                        <span>
-                          trun on two factor authentication and check your list
-                          of connected device to keep your account posts safe{" "}
-                          <a href="#" title="">
-                            Learn More
-                          </a>
-                          .
-                        </span>
-                      </div>
-                      <div class="seting-box">
-                        <p>
-                          to turn on two-factor authentication, you must{" "}
-                          <a href="#" title="">
-                            {" "}
-                            confirm Your Email{" "}
-                          </a>{" "}
-                          and{" "}
-                          <a href="#" title="">
-                            Set Password
-                          </a>
-                        </p>
-                        <div class="set-title">
-                          <h5>Connected Devicese</h5>
-                        </div>
-                        <p>
-                          This is a list of devices that have logged into your
-                          account, Revok any session that you do not recognize.{" "}
-                          <a href="#" title="">
-                            Hide Sessions
-                          </a>
-                        </p>
-                        <span>Last Accessed</span>
-                        <p>August 30, 2020 12:25AM</p>
-                        <span>Location</span>
-                        <p>Berlin, Germany (based on IP = 103.233.24.5)</p>
-                        <span>Device Type</span>
-                        <p>Chrome on windows 10</p>
-                      </div>
-                    </div>
-                    <div class="tab-pane fade" id="apps" role="tabpanel">
-                      <div class="set-title">
-                        <h5>Apps</h5>
-                        <span>
-                          Keep track of everywhere you have login with your
-                          pintik profile and remove access from apps you are no
-                          longer using with pitnik{" "}
-                          <a href="#" title="">
-                            Learn more
-                          </a>
-                        </span>
-                      </div>
-                      <p class="p-info">You have not approved any app</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+    <div className="content-with-nav">
+      <div className="container-fluid privacy">
+        <div className="row">
+          <div className="col-lg-12 about-section">
+            <h1>Privacy Policy</h1>
+            <p>
+              The Gobo Team is part of the Civic Media Group in the Media
+              Laboratory at the Massachusetts Institute of Technology ("MIT").
+              Gobo is a website that analyzes and lets you filter the social
+              media content you see from your feed. Gobo is committed to
+              respecting the privacy of users who access the Gobo website (the
+              “Site,” which includes all pages within gobo.social).
+            </p>
+            <h2>Web Server Logs</h2>
+            <p>
+              When you visit the Site, our web server may record the following
+              information in its server log:
+            </p>
+            <ul>
+              <li>your IP Address,</li>
+              <li>the URLs on the Site you have requested to access,</li>
+              <li>the dates and methods of requests,</li>
+              <li>the status code of your requests,</li>
+              <li>URLs of pages that referred you to the Site,</li>
+              <li>number of bytes transferred, and</li>
+              <li>your web browser and operating system platform.</li>
+            </ul>
+            <p>
+              We use server log information to help diagnose problems with our
+              server and to administer our website by identifying which parts of
+              our site are most heavily used. We also use this information to
+              tailor site content to user needs and to generate aggregate
+              statistical reports. Web server logs are retained on a temporary
+              basis, during which time their contents are accessible to Site
+              administrators, and then deleted completely from our systems.
+              Unless required by legal process, we do not link IP addresses to
+              any personally identifiable information.
+              <br />
+              In addition, we ordinarily do not disclose to third parties site
+              usage by individual IP addresses, but we may do so in very limited
+              circumstances when complying with law or legal process, working
+              with consultants assisting us with fixing or improving the Site,
+              or monitoring and improving the security of our network.
+            </p>
+            <h2>User Registration and User Generated Content</h2>
+            <p>
+              To obtain user registration, you must submit your email address to
+              the Site, along with authorization to access your feed on Twitter
+              and/or Facebook. We will use that authorization to load the most
+              recent posts you see on either website. The Site allows you see
+              and filter posts from your feed on both social media sites if you
+              are a registered user. The posts you see will only be viewable by
+              yourself.
+              <br />
+              We will not disclose your email address or the posts you see
+              anywhere on the Site.
+            </p>
+            <p>
+              From time to time we may solicit feedback from you about your use
+              of the Site and its features (your “Feedback”). You are not
+              required to provide Feedback. We solicit Feedback for internal
+              purposes only, so that we can evaluation the Site and its
+              features, and we will not publish or otherwise disclose your
+              Feedback without first obtaining your consent to do so. We can ask
+              you for time to do unstructured interviews to gather your thoughts
+              about the Site. Anonymous quotes from these interviews could be
+              used in academic research papers.
+            </p>
+            <h2>Programming Analytics</h2>
+            In order to refine the resources on offer through the Site and to
+            optimize Gobo's programming, Gobo may elect to conduct internal
+            analytics of how you use the site. Any such internal analytics will
+            be conducted in an anonymized way.
+            <br />
+            <h2>Analytics</h2>
+            <p>
+              We use Google Analytics to perform Site usage analytics. Google
+              Analytics collects information from users to help us track Site
+              usage and referrals from other websites. These data are used
+              primarily to optimize the website experience for our visitors, and
+              also to understand how the Site is being used.
+              <br />
+              Information collected and processed by Google Analytics includes
+              the user’s IP address, network location, and geographic location.
+              Google Analytics acquires all its information directly from the
+              user, by installing a cookie (see below) on JavaScript-enabled
+              computers. The Site does not share any information it collects
+              with Google Analytics, and Google Analytics does not collect any
+              personal identifying information such as names, contact
+              information, social security numbers or financial information.
+            </p>
+            <h2>Cookies</h2>
+            <p>
+              Cookies are unique bits of computer data that many major websites
+              will transfer to your computer the first time that you visit.
+              Cookies are stored on your hard drive and may be later accessed by
+              the website to track prior usage. As noted above, Google Analytics
+              will install a cookie on the hard drives of Site visitors.
+            </p>
+            <h2>E-mail</h2>
+            <p>
+              We will only use your email address for the purpose for which you
+              have provided it — i.e., to respond to a message from you or to
+              communicate with you regarding your user account.
+              <br />
+              In the event we contract with a third-party service to assist with
+              email delivery of newsletters and other mailings containing
+              information about the Site, that service will be prohibited from
+              using or sharing Site user information for any purpose other than
+              facilitating communications on behalf of the Site.
+            </p>
+            <h2>Disclosure to Third Parties</h2>
+            <p>
+              We will not sell, lend, or disclose to third parties any
+              personally identifiable information collected from visitors,
+              except as disclosed in this Policy or in the event we are required
+              by law to do so. We may disclose information to employees,
+              fellows, students, consultants and agents who have a legitimate
+              need to know the information for the purpose of fixing or
+              improving the Site and monitoring and improving the security of
+              our network. We may also disclose this information when special
+              circumstances call for it, such as when disclosure is required by
+              law or court order or when disclosure is, in our sole discretion,
+              necessary to protect our legal rights, including intellectual
+              property rights.
+            </p>
+            <h2>Other Websites</h2>
+            <p>
+              This Site may contain links to other web resources, including
+              websites of organizations other than the Massachusetts Institute
+              of Technology. The websites to which the Site links may also
+              install cookies on your computer, log your access to their web
+              pages, or collect user-identifying information directly from you,
+              once you proceed to browse those sites. We are not responsible for
+              the privacy policies of other sites or businesses to which the
+              Site provides links. Please visit the relevant sites to review
+              their privacy policies.
+            </p>
+            <h2>Data Security</h2>
+            <p>
+              We have in place physical, electronic and managerial procedures to
+              protect the information we collect online. However, as effective
+              as these measures are, no security system is impenetrable. We
+              cannot completely guarantee the security of our database, nor can
+              we guarantee that the information you supply will not be
+              intercepted while being transmitted to us over the Internet. The
+              Site only keeps track of the most recent 1000 posts from your
+              feeds, periodically deleting older posts.
+            </p>
+            <h2>Notification of Changes to the Privacy Policy</h2>
+            <p>
+              We will review our security measures and Privacy Policy on a
+              periodic basis, and we may modify our policies as appropriate. We
+              may also change or update our Privacy Policy if we add new
+              services or features. If any changes are made, we will make
+              appropriate amendments to this policy, post them at the Site, and
+              notify you. If changes are major, such that they affect your
+              rights, safety or welfare, you will need re-consent. We encourage
+              you to review our Privacy Policy on a regular basis. If you have
+              any questions about this Privacy Policy, the practices of this
+              Site, or your dealings with this Site, you can contact the Gobo
+              team at gobo@media.mit.edu.
+            </p>
+            <h2>Effective Date</h2>
+            <p>This Privacy Policy is in effect as of Sept 7, 2017.</p>
+            <p>
+              <b>
+                {" "}
+                Thanks for reading, and let us know if you have any feedback or
+                concerns!
+                <br />
+                Peace,
+                <br />
+                The Gobo Team
+              </b>
+            </p>
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

@@ -1,9 +1,9 @@
 import React from "react";
 import { Result, Button } from "antd";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../Home/Navbar";
-
 const Error404 = () => {
+  const navigate = useNavigate();
   return (
     <>
       <Navbar />
@@ -26,7 +26,7 @@ const Error404 = () => {
         }
         extra={
           <Link to="/">
-            <Button type="primary">Back to Feed</Button>
+            <Button type="primary" onClick={() => navigate("/")}>Back to Feed</Button>
           </Link>
         }
       />
